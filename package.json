@@ -5,6 +5,7 @@
 	"main": "server.js",
 	"scripts": {
 		"test": "jest",
+		"lint:css": "stylelint **/*.css --fix",
 		"start": "node server.js"
 	},
 	"author": "",
@@ -36,9 +37,29 @@
 		"eslint-plugin-react": "^7.13.0",
 		"eslint-plugin-react-hooks": "^1.6.0",
 		"jest": "24.7.1",
+		"prettier": "1.18.2",
 		"react": "^16.8.6",
 		"stylelint": "^10.0.1",
 		"stylelint-config-standard": "^18.3.0",
 		"typescript": "^3.4.5"
+	},
+	"husky": {
+		"hooks": {
+			"pre-commit": "lint-staged"
+		}
+	},
+	"lint-staged": {
+		"*.{js,css,json,md}": [
+			"prettier --write",
+			"git add"
+		],
+		"*.js": [
+			"eslint --fix",
+			"git add"
+		],
+		"*.css": [
+			"stylelint --fix",
+			"git add"
+		]
 	}
 }
