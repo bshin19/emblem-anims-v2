@@ -1,7 +1,7 @@
-module.exports = function(app) {
+export default htmlRoutes = (app) => {
 
 	// Home
-	app.get("/", function(req, res) {
+	app.get("/", function (req, res) {
 		res.render("index");
 	});
 };

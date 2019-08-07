@@ -8,7 +8,6 @@ module.exports = {
 	"extends": [
 		"eslint:recommended",
 		"plugin:jest/recommended",
-		"plugin:react/recommended",
 		"plugin:@typescript-eslint/recommended"
 	],
 	"globals": {
@@ -17,25 +16,27 @@ module.exports = {
 	},
 	"parser": '@typescript-eslint/parser',
 	"parserOptions": {
-		"ecmaFeatures": {
-			"jsx": true
-		},
 		"ecmaVersion": 2018,
 		"project": "./tsconfig.json",
 		"sourceType": "module"
 	},
 	"plugins": [
 		"jest",
-		"react",
-		"react-hooks",
 		"@typescript-eslint"
 	],
-	"settings": { react: { version: '16' } },
 	"rules": {
-		"array-bracket-spacing": ["error", "never", { "objectsInArrays": true }],
-		"arrow-spacing": ["error", { "before": true, "after": true }],
+		"array-bracket-spacing": ["error", "never", {
+			"objectsInArrays": true
+		}],
+		"arrow-spacing": ["error", {
+			"before": true,
+			"after": true
+		}],
 		"block-spacing": ["error", "always"],
-		"comma-spacing": ["error", { "before": false, "after": true }],
+		"comma-spacing": ["error", {
+			"before": false,
+			"after": true
+		}],
 		"comma-style": ["error", "last"],
 		"eol-last": ["error", "always"],
 		"indent": ["error", "tab"],
@@ -45,28 +46,41 @@ module.exports = {
 		"jest/prefer-to-have-length": "warn",
 		"jest/valid-expect": "error",
 		"jsx-quotes": ["error", "prefer-double"],
-		"key-spacing": ["error", { "beforeColon": false }],
-		"keyword-spacing": ["error", { "before": true, "after": true }],
+		"key-spacing": ["error", {
+			"beforeColon": false
+		}],
+		"keyword-spacing": ["error", {
+			"before": true,
+			"after": true
+		}],
 		"new-parens": "error",
 		"no-duplicate-imports": "error",
 		"no-else-return": "error",
 		"no-lonely-if": "error",
 		"no-multi-spaces": "error",
-		"no-multiple-empty-lines": [2, { "max": 1, "maxBOF": 1, "maxEOF": 1 }],
+		"no-multiple-empty-lines": [2, {
+			"max": 1,
+			"maxBOF": 1,
+			"maxEOF": 0
+		}],
 		"no-trailing-spaces": "error",
 		"no-unneeded-ternary": "error",
 		"no-unsafe-negation": "error",
-		"no-unused-vars": ["error", { "vars": "all", "args": "none" }],
-		"no-use-before-define": ["error", { functions: true, classes: true, variables: true }],
+		"no-unused-vars": ["error", {
+			"vars": "all",
+			"args": "none"
+		}],
+		"no-use-before-define": ["error", {
+			functions: true,
+			classes: true,
+			variables: true
+		}],
 		"no-useless-computed-key": "error",
 		"no-useless-constructor": "error",
 		"no-useless-rename": "error",
 		"no-useless-return": "error",
 		"no-whitespace-before-property": "error",
 		"object-curly-spacing": ["error", "always"],
-		"react/display-name": "error",
-		"react-hooks/rules-of-hooks": "error",
-		"react-hooks/exhaustive-deps": "warn",
 		"semi": ["error", "always"],
 		"space-before-blocks": "error",
 		"space-before-function-paren": "error",
@@ -74,16 +88,25 @@ module.exports = {
 		"spaced-comment": ["error", "always"],
 		"@typescript-eslint/adjacent-overload-signatures": "error",
 		"@typescript-eslint/array-type": ["error", "generic"],
-		"@typescript-eslint/camelcase": ["error", { properties: "always" }],
+		"@typescript-eslint/camelcase": ["error", {
+			properties: "always"
+		}],
 		"@typescript-eslint/class-name-casing": "error",
 		"@typescript-eslint/explicit-function-return-type": "error",
 		"@typescript-eslint/indent": ["error", "tab"],
 		"@typescript-eslint/member-delimiter-style": ["error", {
-			multiline: { delimiter: "comma", requireLast: false },
-			singleline: { delimiter: "comma", requireLast: false }
+			multiline: {
+				delimiter: "comma",
+				requireLast: false
+			},
+			singleline: {
+				delimiter: "comma",
+				requireLast: false
+			}
 		}],
 		"@typescript-eslint/no-angle-bracket-type-assertion": "error",
 		"@typescript-eslint/no-empty-interface": "error",
+		"@typescript-eslint/no-explicit-any": 0,
 		"@typescript-eslint/no-extraneous-class": "error",
 		"@typescript-eslint/no-for-in-array": "error",
 		"@typescript-eslint/no-misused-new": "error",
@@ -92,23 +115,31 @@ module.exports = {
 		"@typescript-eslint/no-this-alias": "error",
 		"@typescript-eslint/no-unnecessary-type-assertion": "error",
 		"@typescript-eslint/no-unnecessary-qualifier": "error",
-		"@typescript-eslint/no-unused-vars": ['error', { args: "none", ignoreRestSiblings: false, vars: "all" }],
+		"@typescript-eslint/no-unused-vars": ['error', {
+			args: "none",
+			ignoreRestSiblings: false,
+			vars: "all"
+		}],
 		"@typescript-eslint/no-useless-constructor": "error",
+		"@typescript-eslint/no-var-requires": 0,
 		"@typescript-eslint/restrict-plus-operands": "error",
 		"@typescript-eslint/type-annotation-spacing": ["error", {
 			before: false,
 			after: true,
-			overrides: { arrow: { before: true, after: true }}
+			overrides: {
+				arrow: {
+					before: true,
+					after: true
+				}
+			}
 		}],
 		"quotes": ["error", "double"]
 	},
-	"overrides": [
-		{
-			"files": ["**/*.js", "**/*.jsx", "**/*.ts", "**/*.tsx"],
-			"rules": {
-				"no-unused-vars": ["off"],
-				"no-undef": ["off"]
-			}
+	"overrides": [{
+		"files": ["**/*.js", "**/*.jsx", "**/*.ts", "**/*.tsx"],
+		"rules": {
+			"no-unused-vars": ["off"],
+			"no-undef": ["off"]
 		}
-	]
+	}]
 };

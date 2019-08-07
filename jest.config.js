@@ -7,7 +7,8 @@ module.exports = {
 	"coveragePathIgnorePatterns": [
 		"stories.ts*",
 		"index.ts$",
-		"/story-examples/"
+		"/story-examples/",
+		"client"
 	],
 	"setupFilesAfterEnv": ["<rootDir>util/test-init.ts"],
 	"coverageThreshold": {
