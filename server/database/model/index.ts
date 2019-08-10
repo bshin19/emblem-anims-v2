@@ -3,10 +3,10 @@
 import fs from "fs";
 import path from "path";
 import { Sequelize, DataTypes } from "sequelize";
-import config from "../../config.json";
-import { Anim } from "./anim.js";
-import { Weapon } from "./weapon.js";
-import { AnimWeapon } from "./animweapon.js";
+import config from "../../../config.json";
+import { Anim } from "./anim";
+import { Weapon } from "./weapon";
+import { AnimWeapon } from "./animweapon";
 
 let sequelize: Sequelize;
 const basename = path.basename(module.filename);
@@ -71,4 +71,8 @@ AnimWeapon.init({
 	tableName: "animwepims"
 });
 
+Anim.belongsToMany(Weapon, {
+	through: "AnimWepIm"
+	// foreignKey: 'animId'
+});
 export default db;

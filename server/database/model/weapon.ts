@@ -1,4 +1,5 @@
 import { BuildOptions, Model, Sequelize, DataTypes, HasManyCreateAssociationMixin, HasManyCountAssociationsMixin, HasManyAddAssociationMixin, HasManyAddAssociationsMixin, HasManySetAssociationsMixin, HasManyGetAssociationsMixin } from "sequelize";
+import { Anim } from "./anim";
 
 export class Weapon extends Model {
 	public still!: string;
@@ -8,12 +9,12 @@ export class Weapon extends Model {
 	public readonly createdAt!: Date;
 	public readonly updatedAt!: Date;
 
-	public getAnim!: HasManyGetAssociationsMixin<Weapon>
-	public setAnim!: HasManySetAssociationsMixin<Weapon, number>
-	public addAnims!: HasManyAddAssociationsMixin<Weapon, number>
-	public addAnim!: HasManyAddAssociationMixin<Weapon, number>
+	public getAnim!: HasManyGetAssociationsMixin<Anim>
+	public setAnim!: HasManySetAssociationsMixin<Anim, number>
+	public addAnims!: HasManyAddAssociationsMixin<Anim, number>
+	public addAnim!: HasManyAddAssociationMixin<Anim, number>
 	public countAnim!: HasManyCountAssociationsMixin
-	public createAnim!: HasManyCreateAssociationMixin<Weapon>
+	public createAnim!: HasManyCreateAssociationMixin<Anim>
 }
 
 interface WeaponProps extends Model {

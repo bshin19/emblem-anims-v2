@@ -1,7 +1,7 @@
-import sequelize, { DataTypes, HasManyGetAssociationsMixin, HasManyAddAssociationMixin, HasManySetAssociationsMixin, HasManyAddAssociationsMixin, HasManyCountAssociationsMixin, HasManyCreateAssociationMixin } from "sequelize";
+import { DataTypes, HasManyGetAssociationsMixin, HasManyAddAssociationMixin, HasManySetAssociationsMixin, HasManyAddAssociationsMixin, HasManyCountAssociationsMixin, HasManyCreateAssociationMixin, Model, BuildOptions, Sequelize } from "sequelize";
 import { Weapon } from "./weapon";
 
-export class Anim extends sequelize.Model {
+export class Anim extends Model {
 	public tier!: string;
 	public category!: string;
 	public feClass!: string;
@@ -23,12 +23,7 @@ export class Anim extends sequelize.Model {
 	public createWeapons!: HasManyCreateAssociationMixin<Weapon>
 }
 
-Anim.belongsToMany(Weapon, {
-	through: "AnimWepIm"
-	// foreignKey: 'animId'
-});
-
-interface AnimProps extends sequelize.Model {
+interface AnimProps extends Model {
 	readonly tier: string,
 	readonly category: string,
 	readonly feClass: string,
@@ -40,11 +35,11 @@ interface AnimProps extends sequelize.Model {
 }
 
 // Need to declare the static model so `findOne` etc. use correct types
-type AnimModel = typeof sequelize.Model & {
-	new (values?: object, options?: sequelize.BuildOptions): AnimProps
+type AnimModel = typeof Model & {
+	new (values?: object, options?: BuildOptions): AnimProps
 }
 
-export const AnimFactory = (sequelInstance: sequelize.Sequelize): AnimModel => {
+export const AnimFactory = (sequelInstance: Sequelize): AnimModel => {
 	const newAnim = sequelInstance.define("Anim", {
 		tier: DataTypes.STRING,
 		category: DataTypes.STRING,

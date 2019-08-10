@@ -8,7 +8,8 @@ module.exports = {
 		"stories.ts*",
 		"index.ts$",
 		"/story-examples/",
-		"client"
+		"client",
+		"build"
 	],
 	"setupFilesAfterEnv": ["<rootDir>util/test-init.ts"],
 	"coverageThreshold": {

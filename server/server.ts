@@ -1,7 +1,7 @@
 import bodyParser from "body-parser";
 import express from "express";
-import htmlRoutes from "./route/html.js";
-import apiRoutes from "./route/api.js";
+import htmlRoutes from "./route/html";
+import apiRoutes from "./route/api";
 import db from "./database/model";
 
 // Express Entry Point

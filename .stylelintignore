@@ -1,4 +1,3 @@
 build/
-**/*.sql
 node_modules/
 client/
