@@ -4,9 +4,11 @@
 	"description": "",
 	"main": "server.js",
 	"scripts": {
-		"build": "yarn build:types && yarn build:js",
+		"build": "yarn clean && yarn build:types && yarn build:js",
 		"build:js": "babel server --out-dir build --extensions \".ts,.tsx\" --source-maps inline",
 		"build:types": "tsc",
+		"clean": "rimraf build/*",
+		"clean:node": "rimraf node_modules/*",
 		"lint": "yarn lint:css && yarn lint:js",
 		"lint:css": "stylelint **/*.css --fix",
 		"lint:js": "eslint server/** --fix",
