@@ -58,32 +58,38 @@ const animToDB = (anim: AnimProps): void => {
 	}).then((sqlAnim: any): void => {
 		anim.weapons && anim.weapons.forEach((weapon: Record<string, any>): void => {
 			// Create will fail intentionally for any pre-existing weapon in the db.
-			db.Weapon.create({
-				still: weapon.still,
-				gif: weapon.gif,
-				// for searching purposes, feclass is added. weapon type is also added.
-			}).then((sqlWeapon: any): void => {
-				sqlAnim[0].addWeapon(sqlWeapon, {
-					through: {
-						name: anim.feClass,
-						weapon: weapon.type
-					}
-				}).then((): void => {
+			db.Weapon
+				.create({
+					still: weapon.still,
+					gif: weapon.gif,
+					// for searching purposes, feclass is added. weapon type is also added.
+				})
+				.then((sqlWeapon: any): void => {
+					sqlAnim[0].addWeapon(sqlWeapon, {
+						through: {
+							name: anim.feClass,
+							weapon: weapon.type
+						}
+					})
+						.then((): void => {
+							// eslint-disable-next-line
+							console.log(`Success: ${anim.feClass} ${anim.name} - ${weapon.fullName} has been inserted.`);
+						})
+						.catch((err: any): void => {
+							// eslint-disable-next-line
+							console.log(`Failed: Merge Table: ${anim.feClass} ${anim.name} - ${weapon.fullName}. Err Code: ${err}`);
+						});
+				})
+				.catch((err: any): void => {
 					// eslint-disable-next-line
-					console.log(`Success: ${anim.feClass} ${anim.name} - ${weapon.fullName} has been inserted.`);
-				}).catch((err: any): void => {
-					// eslint-disable-next-line
-					console.log(`Failed: Merge Table: ${anim.feClass} ${anim.name} - ${weapon.fullName}. Err Code: ${err}`);
+					console.log(`Failed: Weapon Search: ${anim.feClass} ${anim.name} - ${weapon.fullName}. Err code: ${err}`);
 				});
-			}).catch((err: any): void => {
-				// eslint-disable-next-line
-				console.log(`Failed: Weapon Search: ${anim.feClass} ${anim.name} - ${weapon.fullName}. Err code: ${err}`);
-			});
 		});
-	}).catch((err: any): void => {
-		// eslint-disable-next-line
-		console.log(`Failed: Animation: ${anim.name}. Err code: ${err}`);
-	});
+	})
+		.catch((err: any): void => {
+			// eslint-disable-next-line
+			console.log(`Failed: Animation: ${anim.name}. Err code: ${err}`);
+		});
 };
 
 // Function to be called at the completion of findAnims. Handles completed array.

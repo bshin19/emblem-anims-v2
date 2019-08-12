@@ -1,27 +1,24 @@
-import express from "express";
-import { getAnimsByClass, getAnimsBySearch, getAnimsByExactSearch } from "../database/controller";
+import { Router } from "express";
+import { getAnimsByClass, getAnimsByExactSearch, getAnimsBySearch } from "../database/controller";
 import { getZippedDirectory } from "../util/get-zip-directory";
 
-const apiRoutes = (app: express.Application): void => {
+const router = Router();
+
+export const apiRoutes = (): void => {
 
 	// Gathers animations based on the selected class category
-	app.get("/api/anims/:class", (req, res): void => {
-		getAnimsByClass(req, res);
-	});
+	router.route("anims/:class")
+		.get(getAnimsByClass);
 
-	// Search API route takes search term as an object and searches the database using term info
-	app.get("/api/search/", (req, res): void => {
-		getAnimsBySearch(req, res);
-	});
+	// Search API route takes search terms as an array and searches the database using term info
+	router.route("search")
+		.get(getAnimsBySearch);
 
-	app.get("/api/detailedSearch/", (req, res): void => {
-		getAnimsByExactSearch(req, res);
-	});
+	// Detailed search route takes an object and searches the database for exact messages
+	router.route("detailedSearch")
+		.get(getAnimsByExactSearch);
 
 	// Download path zips the item selected and outputs it
-	app.get("/api/unit/:path", (req, res): void => {
-		getZippedDirectory(req, res);
-	});
+	router.route("download/unit/:path")
+		.get(getZippedDirectory);
 };
-
-export default apiRoutes;

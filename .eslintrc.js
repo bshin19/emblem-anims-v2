@@ -22,7 +22,8 @@ module.exports = {
 	},
 	"plugins": [
 		"jest",
-		"@typescript-eslint"
+		"@typescript-eslint",
+		"sort-imports-es6-autofix"
 	],
 	"rules": {
 		"array-bracket-spacing": ["error", "never", {
@@ -39,7 +40,7 @@ module.exports = {
 		}],
 		"comma-style": ["error", "last"],
 		"eol-last": ["error", "always"],
-		"indent": ["error", "tab"],
+		// "indent": ["error", "tab"],
 		"jest/no-disabled-tests": "warn",
 		"jest/no-focused-tests": "error",
 		"jest/no-identical-title": "error",
@@ -82,6 +83,11 @@ module.exports = {
 		"no-whitespace-before-property": "error",
 		"object-curly-spacing": ["error", "always"],
 		"semi": ["error", "always"],
+		"sort-imports-es6-autofix/sort-imports-es6": [2, {
+			"ignoreCase": false,
+			"ignoreMemberSort": false,
+			"memberSyntaxSortOrder": ["none", "all", "multiple", "single"]
+		}],
 		"space-before-blocks": "error",
 		"space-before-function-paren": "error",
 		"space-in-parens": ["error", "never"],

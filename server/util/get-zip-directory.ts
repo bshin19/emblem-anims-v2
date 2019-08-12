@@ -9,7 +9,7 @@ export const getZippedDirectory = (req: Request, res: Response): void => {
 
 	const promise = new Promise((resolve, reject): void => {
 
-		var stream = fs.createWriteStream(out);
+		const stream = fs.createWriteStream(out);
 		archive
 			.directory(source, false)
 			.on("error", (err): void => {
@@ -45,5 +45,5 @@ export const getZippedDirectory = (req: Request, res: Response): void => {
 			res.json(`/${req.params.path}.zip`);
 		},
 		// eslint-disable-next-line
-		error =>  console.log(error));
+		error => console.log(error));
 };

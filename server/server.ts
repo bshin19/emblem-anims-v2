@@ -1,8 +1,7 @@
+import { router } from "./route";
 import bodyParser from "body-parser";
-import express from "express";
-import htmlRoutes from "./route/html";
-import apiRoutes from "./route/api";
 import db from "./database/model";
+import express from "express";
 
 // Express Entry Point
 const app = express();
@@ -15,18 +14,15 @@ app.use(bodyParser.json());
 // Static directory
 app.use(express.static("client/public"));
 
-htmlRoutes(app);
-apiRoutes(app);
+app.use(router);
 
-// Sync sequelize models and then start the Express app
 // db.sequelize.sync({ force: true }).then(function () { //add force true for restarting db
 db.sequelize.sync({ db }).then(function (): void {
 	app.listen(PORT, function (): void {
 		// eslint-disable-next-line
 		console.log("App listening on PORT " + PORT);
 
-		// Uncomment to seed local repo
-		// require("./scripts/repoSeeder");
+		// require("./database/script/seeder");	// Uncomment to seed local repo
 
 	});
 });

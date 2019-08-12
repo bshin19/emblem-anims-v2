@@ -1,10 +1,6 @@
-import express from "express";
+import { Request, Response } from "express";
+import path from "path";
 
-const htmlRoutes = (app: express.Application): void => {
-	// Home
-	app.get("/", (req, res): void => {
-		res.render("index");
-	});
+export const htmlRoutes = (req: Request, res: Response): void => {
+	res.sendFile(path.join(__dirname, "../client/src/index.html"));
 };
-
-export default htmlRoutes;

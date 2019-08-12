@@ -1,12 +1,12 @@
 "use strict";
 
+import { DataTypes, Sequelize } from "sequelize";
+import { Anim } from "./anim";
+import { AnimWeapon } from "./animweapon";
+import { Weapon } from "./weapon";
+import config from "../../../config.json";
 import fs from "fs";
 import path from "path";
-import { Sequelize, DataTypes } from "sequelize";
-import config from "../../../config.json";
-import { Anim } from "./anim";
-import { Weapon } from "./weapon";
-import { AnimWeapon } from "./animweapon";
 
 let sequelize: Sequelize;
 const basename = path.basename(module.filename);
