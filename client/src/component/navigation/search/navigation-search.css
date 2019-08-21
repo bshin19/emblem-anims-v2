@@ -1,0 +1,12 @@
+.navigation-search-wrapper {
+	flex: 0 1 150px;
+	display: flex;
+	height: 100%;
+}
+
+input[type="text"].navigation-search {
+	height: 100%;
+	border-radius: 0;
+	border: none;
+	width: 100%;
+}

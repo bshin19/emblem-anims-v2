@@ -1,5 +1,5 @@
-import { BuildOptions, Model, Sequelize, DataTypes, HasManyCreateAssociationMixin, HasManyCountAssociationsMixin, HasManyAddAssociationMixin, HasManyAddAssociationsMixin, HasManySetAssociationsMixin, HasManyGetAssociationsMixin } from "sequelize";
 import { Anim } from "./anim";
+import { BuildOptions, DataTypes, HasManyAddAssociationMixin, HasManyAddAssociationsMixin, HasManyCountAssociationsMixin, HasManyCreateAssociationMixin, HasManyGetAssociationsMixin, HasManySetAssociationsMixin, Model, Sequelize } from "sequelize";
 
 export class Weapon extends Model {
 	public still!: string;

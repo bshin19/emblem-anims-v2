@@ -29,7 +29,7 @@ export const NavigationItemsPropTypes = {
 export const navigationItems: Array<NavigationItemProps> = [
 	{
 		"text": "Swords",
-		"gif": "_img/global/myrmidon.gif",
+		"gif": "_img/navigation-icon/myrmidon.gif",
 		"htmlRef": "SWD",
 		"classArray": [
 			"Squire", "Mercenary", "Hero", "Myrmidon", "Swordmaster",
@@ -38,7 +38,7 @@ export const navigationItems: Array<NavigationItemProps> = [
 	},
 	{
 		"text": "Lances",
-		"gif": "_img/global/soldier.gif",
+		"gif": "_img/navigation-icon/soldier.gif",
 		"htmlRef": "LNC",
 		"classArray": [
 			"Recruit", "Soldier", "Halberdier"
@@ -46,7 +46,7 @@ export const navigationItems: Array<NavigationItemProps> = [
 	},
 	{
 		"text": "Axes",
-		"gif": "_img/global/fighter.gif",
+		"gif": "_img/navigation-icon/fighter.gif",
 		"htmlRef": "AXE",
 		"classArray": [
 			"Journeyman", "Brigand", "Pirate",
@@ -55,7 +55,7 @@ export const navigationItems: Array<NavigationItemProps> = [
 	},
 	{
 		"text": "Bows",
-		"gif": "_img/global/archer.gif",
+		"gif": "_img/navigation-icon/archer.gif",
 		"htmlRef": "BOW",
 		"classArray": [
 			"Archer", "Sniper", "Ballista", "Nomad", "Ranger"
@@ -63,7 +63,7 @@ export const navigationItems: Array<NavigationItemProps> = [
 	},
 	{
 		"text": "Armor",
-		"gif": "_img/global/knight.gif",
+		"gif": "_img/navigation-icon/knight.gif",
 		"htmlRef": "ARM",
 		"classArray": [
 			"Knight", "General", "Marshall"
@@ -71,7 +71,7 @@ export const navigationItems: Array<NavigationItemProps> = [
 	},
 	{
 		"text": "Cavalry",
-		"gif": "_img/global/cavalier.gif",
+		"gif": "_img/navigation-icon/cavalier.gif",
 		"htmlRef": "CAV",
 		"classArray": [
 			"Cavalier", "Paladin", "Great Knight",
@@ -80,7 +80,7 @@ export const navigationItems: Array<NavigationItemProps> = [
 	},
 	{
 		"text": "Fliers",
-		"gif": "_img/global/pegasus_knight.gif",
+		"gif": "_img/navigation-icon/pegasus_knight.gif",
 		"htmlRef": "FLY",
 		"classArray": [
 			"Pegasus Knight", "Falcoknight", "Griffon Knight",
@@ -89,7 +89,7 @@ export const navigationItems: Array<NavigationItemProps> = [
 	},
 	{
 		"text": "Unique",
-		"gif": "_img/global/lord.gif",
+		"gif": "_img/navigation-icon/lord.gif",
 		"htmlRef": "LRD",
 		"classArray": [
 			"Lord", "Great Lord", "Refresh", "Miscellaneous", "Crossover"
@@ -98,7 +98,7 @@ export const navigationItems: Array<NavigationItemProps> = [
 	},
 	{
 		"text": "Magi",
-		"gif": "_img/global/mage.gif",
+		"gif": "_img/navigation-icon/mage.gif",
 		"htmlRef": "MAG",
 		"classArray": [
 			"Pupil", "Mage", "Sage", "Archsage",
@@ -111,7 +111,7 @@ export const navigationItems: Array<NavigationItemProps> = [
 	},
 	{
 		"text": "Monsters",
-		"gif": "_img/global/revenant.gif",
+		"gif": "_img/navigation-icon/revenant.gif",
 		"htmlRef": "MON",
 		"classArray": [
 			"Undead", "Demon", "Mauthe Doog",
@@ -121,7 +121,7 @@ export const navigationItems: Array<NavigationItemProps> = [
 	},
 	{
 		"text": "Spells",
-		"gif": "_img/global/tome.gif",
+		"gif": "_img/navigation-icon/tome.gif",
 		"htmlRef": "SPL",
 		"classArray": [
 			"Anima", "Dark", "Light", "Other"

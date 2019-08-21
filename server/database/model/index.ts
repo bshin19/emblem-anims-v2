@@ -1,8 +1,8 @@
 "use strict";
 
-import { DataTypes, Sequelize } from "sequelize";
 import { Anim } from "./anim";
 import { AnimWeapon } from "./animweapon";
+import { DataTypes, Sequelize } from "sequelize";
 import { Weapon } from "./weapon";
 import config from "../../../config.json";
 import fs from "fs";

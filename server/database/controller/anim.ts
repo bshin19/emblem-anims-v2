@@ -1,6 +1,6 @@
-import db from "../model";
-import { Response, Request } from "express";
 import { Error } from "sequelize/types";
+import { Request, Response } from "express";
+import db from "../model";
 
 // Given a class, search the database for all matches in the class column.
 export const getAnimsByClass = (req: Request, res: Response): void => {

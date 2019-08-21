@@ -16,7 +16,7 @@
 		"lint:js": "eslint server/** --fix",
 		"start": "yarn lint && yarn build && node build/server.js",
 		"start:client": "cd client && yarn start",
-		"start:dev": "concurrently \"yarn --ignore 'client/*'\" \"yarn start:client\"",
+		"start:dev": "concurrently \"yarn start --ignore 'client/*'\" \"yarn start:client\"",
 		"start:skip": "node build/server",
 		"start:storybook": "cd client && yarn storybook",
 		"test": "jest",

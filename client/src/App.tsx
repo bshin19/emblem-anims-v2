@@ -1,10 +1,12 @@
 import React, { ReactElement } from "react";
-import "./App.css";
+import { Header } from "./component/header/header";
+import { NavigationBar } from "./component/navigation";
 
 const App = (): ReactElement => (
-	<div>
-		Hello World
-	</div>
+	<>
+		<Header/>
+		<NavigationBar/>
+	</>
 );
 
 export default App;

@@ -1,4 +1,4 @@
-import { DataTypes, HasManyGetAssociationsMixin, HasManyAddAssociationMixin, HasManySetAssociationsMixin, HasManyAddAssociationsMixin, HasManyCountAssociationsMixin, HasManyCreateAssociationMixin, Model, BuildOptions, Sequelize } from "sequelize";
+import { BuildOptions, DataTypes, HasManyAddAssociationMixin, HasManyAddAssociationsMixin, HasManyCountAssociationsMixin, HasManyCreateAssociationMixin, HasManyGetAssociationsMixin, HasManySetAssociationsMixin, Model, Sequelize } from "sequelize";
 import { Weapon } from "./weapon";
 
 export class Anim extends Model {

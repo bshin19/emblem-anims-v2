@@ -1,0 +1,32 @@
+h1 {
+	text-align: center;
+	font-weight: 600;
+	font-size: 35px;
+	margin: auto;
+	color: var(--header-font-color);
+	overflow: hidden;
+	text-shadow:
+		-1px -1px 0 #000000,
+		1px -1px 0 #000000,
+		-1px 1px 0 #000000,
+		1px 1px 0 #000000;
+}
+
+a {
+	height: inherit;
+}
+
+header {
+	background-image: var(--header-background);
+	background-repeat: repeat;
+	display: flex;
+	height: 45px;
+	justify-items: center;
+}
+
+.feu-logo {
+	height: inherit;
+	left: 0;
+	position: absolute;
+	top: 0;
+}

@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
-import fs from "fs";
 import archiver from "archiver";
+import fs from "fs";
 
 export const getZippedDirectory = (req: Request, res: Response): void => {
 	const out = `${process.cwd()}/public/${req.params.path}.zip`;

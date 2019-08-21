@@ -1,0 +1,43 @@
+.navigation-item-wrapper {
+	border-right: var(--navigation-item-border);
+	flex: 1 1 0;
+	height: inherit;
+	position: relative;
+}
+
+.navigation-item {
+	background: var(--navigation-item-background);
+	border: none;
+	height: inherit;
+	opacity: .6;
+	width: 100%;
+}
+
+.navigation-item:active,
+.navigation-item:focus,
+.navigation-item:hover {
+	opacity: .7;
+	filter: brightness(70%);
+}
+
+.navigation-item:focus {
+	box-shadow: var(--box-shadow);
+	outline: 0;
+}
+
+.navigation-item:hover {
+	cursor: var(--hover-cursor);
+}
+
+.navigation-item-image {
+	position: absolute;
+	pointer-events: none;
+	right: 10px;
+	bottom: 6px;
+}
+
+.navigation-item option {
+	color: var(--navigation-font-color);
+	font-size: 0.8em;
+	background: var(--navigation-option-background) repeat;
+}
