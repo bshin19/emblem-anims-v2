@@ -1,0 +1,29 @@
+button {
+	transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+		border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+	background-color: var(--button-background);
+	border: 1px solid transparent;
+	color: var(--button-font-color);
+}
+
+button:hover {
+	background-color: var(--button-hover-background);
+	border-color: var(--button-hover-border-color);
+	cursor: var(--hover-cursor);
+}
+
+button:active {
+	background-color: var(--button-active-background);
+	border-color: var(--button-active-border-color);
+}
+
+button:focus {
+	box-shadow: var(--box-shadow);
+	outline: 0;
+}
+
+button:disabled {
+	background-color: var(--button-disabled-background);
+	color: var(--button-disabled-font-color);
+	cursor: unset;
+}

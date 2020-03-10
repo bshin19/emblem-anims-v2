@@ -5,10 +5,7 @@ h1 {
 	margin: auto;
 	color: var(--header-font-color);
 	overflow: hidden;
-	text-shadow:
-		-1px -1px 0 #000000,
-		1px -1px 0 #000000,
-		-1px 1px 0 #000000,
+	text-shadow: -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000,
 		1px 1px 0 #000000;
 }
 
@@ -29,4 +26,13 @@ header {
 	left: 0;
 	position: absolute;
 	top: 0;
+}
+
+@media screen and (max-width: 800px) {
+	h1 {
+		font-size: 25px;
+	}
+	header {
+		height: 35px;
+	}
 }

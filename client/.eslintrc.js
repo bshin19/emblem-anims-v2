@@ -1,13 +1,13 @@
 module.exports = {
-	extends: 'react-app',
-	parser: '@typescript-eslint/parser',
+	extends: "react-app",
+	parser: "@typescript-eslint/parser",
 	parserOptions: {
 		ecmaFeatures: {
-			"jsx": true
+			jsx: true
 		},
-		"ecmaVersion": 2018,
-		"project": "./tsconfig.json",
-		"sourceType": "module"
+		ecmaVersion: 2018,
+		project: "./tsconfig.json",
+		sourceType: "module"
 	},
 	rules: {
 		"@typescript-eslint/camelcase": ["error", { properties: "always" }],
@@ -22,12 +22,18 @@ module.exports = {
 		"@typescript-eslint/no-this-alias": "error",
 		"@typescript-eslint/no-unnecessary-type-assertion": "error",
 		"@typescript-eslint/no-unnecessary-qualifier": "error",
-		"@typescript-eslint/no-unused-vars": ['error', { args: "none", ignoreRestSiblings: false, vars: "all" }],
+		"@typescript-eslint/no-unused-vars": [
+			"error",
+			{ args: "none", ignoreRestSiblings: false, vars: "all" }
+		],
 		"@typescript-eslint/restrict-plus-operands": "error",
-		"@typescript-eslint/type-annotation-spacing": ["error", {
-			before: false,
-			after: true,
-			overrides: { arrow: { before: true, after: true }}
-		}],
+		"@typescript-eslint/type-annotation-spacing": [
+			"error",
+			{
+				before: false,
+				after: true,
+				overrides: { arrow: { before: true, after: true } }
+			}
+		]
 	}
 }

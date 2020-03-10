@@ -1,6 +1,6 @@
 module.exports = {
-	"extends": "stylelint-config-standard",
-	"rules": {
+	extends: ["stylelint-prettier"],
+	rules: {
 		"at-rule-no-unknown": true,
 		"at-rule-semicolon-space-before": "never",
 		"block-closing-brace-newline-before": "always",
@@ -33,7 +33,7 @@ module.exports = {
 		"function-parentheses-newline-inside": "never-multi-line",
 		"function-parentheses-space-inside": "never",
 		"function-url-quotes": "always",
-		"indentation": "tab",
+		// indentation: "tab",
 		"keyframe-declaration-no-important": true,
 		"media-feature-name-no-unknown": true,
 		"no-descending-specificity": true,
@@ -57,4 +57,4 @@ module.exports = {
 		"value-list-comma-newline-before": "never-multi-line",
 		"value-keyword-case": "lower"
 	}
-};
+}

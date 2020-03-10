@@ -1,28 +1,45 @@
-import { router } from "./route";
-import bodyParser from "body-parser";
-import db from "./database/model";
-import express from "express";
+import { cleanCollection as dbCleanCollection, connect as dbConnect } from "./database/db"
+import { driveSearchAnims } from "./drive/drive-search-anims"
+import { config as envConfig } from "dotenv"
+import { router } from "./route"
+import { staticAssetsToMongo } from "./local-env-utils.js"
+import bodyParser from "body-parser"
+import express from "express"
+
+envConfig()
 
 // Express Entry Point
-const app = express();
-const PORT = process.env.PORT || 8080;
+const app = express()
+const PORT = process.env.PORT || 8080
 
 // Data Parsing via BodyParser
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }))
+app.use(bodyParser.json())
 
 // Static directory
-app.use(express.static("client/public"));
+app.use(express.static("client/public"))
+app.use(router)
 
-app.use(router);
+const LOCAL_TEST = false
+const SKIP_GOOGLE_DRIVE = false
 
-// db.sequelize.sync({ force: true }).then(function () { //add force true for restarting db
-db.sequelize.sync({ db }).then(function (): void {
-	app.listen(PORT, function (): void {
+if (LOCAL_TEST) {
+	dbCleanCollection("animations").then(() => {
+		app.listen(PORT, (): void => {
+			// eslint-disable-next-line
+			console.log("App listening on PORT " + PORT)
+
+			if (SKIP_GOOGLE_DRIVE) {
+				staticAssetsToMongo()
+			} else {
+				driveSearchAnims()
+			}
+		})
+	})
+} else {
+	dbConnect()
+	app.listen(PORT, (): void => {
 		// eslint-disable-next-line
-		console.log("App listening on PORT " + PORT);
-
-		// require("./database/script/seeder");	// Uncomment to seed local repo
-
-	});
-});
+		console.log("App listening on PORT " + PORT)
+	})
+}

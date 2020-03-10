@@ -1,23 +1,18 @@
 {
-    "compilerOptions": {
-        // "allowJs": true,
+	"compilerOptions": {
 		"allowSyntheticDefaultImports": true,
 		"declaration": true,
 		"esModuleInterop": true,
 		"jsx": "react",
 		"module": "commonjs",
 		"moduleResolution": "node",
-		"noEmit": true,
+		"emitDeclarationOnly": true,
 		"noImplicitReturns": true,
 		"outDir": "./build",
 		"resolveJsonModule": true,
+		"skipLibCheck": true,
 		"strict": true,
-		// babel handles transpiling to browser-accepted js
-		"target": "esnext",
+		"target": "esnext"
 	},
-	"exclude": [
-		"client",
-		"build",
-		"dist"
-	]
+	"exclude": ["client", "build", "dist", "node_modules"]
 }

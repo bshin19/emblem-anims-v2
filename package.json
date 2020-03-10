@@ -11,81 +11,82 @@
 		"build:types": "tsc",
 		"clean": "rimraf build/*",
 		"clean:node": "rimraf node_modules/*",
-		"lint": "yarn lint:css && yarn lint:js",
-		"lint:css": "stylelint **/*.css --fix",
-		"lint:js": "eslint server/** --fix",
+		"healthcheck": "yarn lint && yarn build",
+		"lint": "yarn lint:js",
+		"lint:js": "eslint server/**/*.ts --fix | yarn prettier --write",
+		"prettier": "prettier \"**/*.{json,md,js,ts,tsx,jsx,css}\"",
 		"start": "yarn lint && yarn build && node build/server.js",
 		"start:client": "cd client && yarn start",
 		"start:dev": "concurrently \"yarn start --ignore 'client/*'\" \"yarn start:client\"",
 		"start:skip": "node build/server",
 		"start:storybook": "cd client && yarn storybook",
 		"test": "jest",
-		"test:client": "cd client && yarn test",
-		"tsc": "tsc --noEmit"
+		"test:client": "cd client && yarn test"
 	},
-	"author": "",
+	"author": "Brady Shinners",
 	"license": "ISC",
 	"type": "module",
 	"dependencies": {
-		"archiver": "^3.1.1",
 		"body-parser": "^1.19.0",
+		"bottleneck": "^2.19.5",
+		"dotenv": "^8.2.0",
 		"express": "^4.17.1",
-		"mysql2": "^1.6.5",
-		"sequelize": "^5.13.0"
+		"googleapis": "47.0.0",
+		"mongodb": "^3.5.4"
 	},
 	"devDependencies": {
-		"@babel/cli": "^7.5.5",
-		"@babel/core": "^7.5.5",
-		"@babel/plugin-proposal-class-properties": "^7.5.5",
-		"@babel/plugin-proposal-numeric-separator": "^7.2.0",
-		"@babel/plugin-proposal-object-rest-spread": "^7.5.5",
-		"@babel/preset-env": "^7.5.5",
-		"@babel/preset-typescript": "^7.3.3",
-		"@types/archiver": "^3.0.0",
-		"@types/bluebird": "^3.5.27",
-		"@types/body-parser": "^1.17.0",
-		"@types/enzyme": "^3.10.3",
-		"@types/enzyme-adapter-react-16": "^1.0.5",
-		"@types/express": "^4.17.0",
-		"@types/jest": "^24.0.17",
-		"@types/node": "^12.7.1",
-		"@types/prop-types": "^15.7.1",
-		"@types/react": "^16.9.1",
-		"@types/react-dom": "^16.8.5",
-		"@types/sequelize": "^4.28.4",
-		"@types/storybook__react": "^4.0.2",
-		"@types/validator": "^10.11.2",
-		"@typescript-eslint/eslint-plugin": "^1.13.0",
-		"@typescript-eslint/parser": "^1.13.0",
-		"concurrently": "^4.1.1",
-		"eslint": "^6.1.0",
-		"eslint-plugin-jest": "^22.15.0",
-		"eslint-plugin-sort-imports-es6-autofix": "^0.4.0",
-		"jest": "24.8.0",
-		"prettier": "1.18.2",
-		"react": "^16.9.0",
-		"rimraf": "^2.6.3",
-		"stylelint": "^10.1.0",
-		"stylelint-config-standard": "^18.3.0",
-		"typescript": "^3.5.3"
+		"@babel/cli": "^7.8.4",
+		"@babel/core": "^7.8.7",
+		"@babel/plugin-proposal-class-properties": "^7.8.3",
+		"@babel/plugin-proposal-numeric-separator": "^7.8.3",
+		"@babel/plugin-proposal-object-rest-spread": "^7.8.3",
+		"@babel/preset-env": "^7.8.7",
+		"@babel/preset-typescript": "^7.8.3",
+		"@types/bluebird": "^3.5.30",
+		"@types/body-parser": "^1.19.0",
+		"@types/enzyme": "^3.10.5",
+		"@types/enzyme-adapter-react-16": "^1.0.6",
+		"@types/express": "^4.17.3",
+		"@types/jest": "24.9.0",
+		"@types/mongodb": "^3.5.2",
+		"@types/node": "^13.9.0",
+		"@types/prop-types": "^15.7.3",
+		"@types/react": "^16.9.23",
+		"@types/react-dom": "^16.9.5",
+		"@types/sequelize": "^4.28.8",
+		"@types/storybook__react": "^5.2.1",
+		"@types/validator": "^12.0.1",
+		"@typescript-eslint/eslint-plugin": "^2.22.0",
+		"@typescript-eslint/parser": "^2.22.0",
+		"concurrently": "^5.1.0",
+		"eslint": "^6.8.0",
+		"eslint-config-prettier": "^6.10.0",
+		"eslint-plugin-jest": "^23.8.2",
+		"eslint-plugin-prettier": "^3.1.2",
+		"eslint-plugin-sort-imports-es6-autofix": "^0.5.0",
+		"husky": "^4.2.3",
+		"jest": "24.9.0",
+		"lint-staged": "^10.0.8",
+		"prettier": "1.19.1",
+		"react": "^16.13.0",
+		"rimraf": "^3.0.2",
+		"typescript": "^3.8.3"
 	},
 	"husky": {
 		"hooks": {
-			"pre-commit": "lint-staged"
+			"pre-commit": "lint-staged",
+			"pre-push": "yarn healthcheck"
 		}
 	},
+	"resolutions": {
+		"webpack": "4.41.5"
+	},
 	"lint-staged": {
-		"*.{js,css,json,md}": [
-			"prettier --write",
-			"git add"
+		"src/**/*.{js,jsx,ts,tsx,json,css,json,md}": [
+			"prettier --write"
 		],
-		"*.js": [
-			"eslint --fix",
-			"git add"
-		],
-		"*.css": [
-			"stylelint --fix",
-			"git add"
+		"server/**/*.{js,jsx,ts,tsx}": [
+			"eslint --fix"
 		]
 	}
 }

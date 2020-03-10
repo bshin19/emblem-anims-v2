@@ -1,12 +1,18 @@
-import React, { ReactElement } from "react";
-import { Header } from "./component/header/header";
-import { NavigationBar } from "./component/navigation";
+import React, { ReactElement } from "react"
+import { Header } from "./component/header/header"
+import { NavigationBar } from "./component/navigation"
 
 const App = (): ReactElement => (
 	<>
-		<Header/>
-		<NavigationBar/>
-	</>
-);
+		<Header />
+		<NavigationBar />
 
-export default App;
+		<iframe
+			id="download-content"
+			title="download-content"
+			style={{ display: "none" }}
+		/>
+	</>
+)
+
+export default App

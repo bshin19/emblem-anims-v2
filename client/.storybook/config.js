@@ -1,10 +1,14 @@
-import { configure } from '@storybook/react';
-// TODO: Remove Bootstrap!
-import 'bootstrap/dist/css/bootstrap.css';
-import '@fortawesome/fontawesome-free/css/all.css';
+import { configure, addDecorator } from "@storybook/react"
+import "../src/reset.css"
+import "../src/index.css"
+import "./storybook.css"
+import { withKnobs } from "@storybook/addon-knobs"
+
+addDecorator(withKnobs)
 
 function loadStories() {
-	const req = require.context('../src', true, /\.stories\.(js|jsx|ts|tsx)$/);
-	req.keys().forEach(filename => req(filename));}
+	const req = require.context("../src", true, /\.stories\.(js|jsx|ts|tsx)$/)
+	req.keys().forEach(filename => req(filename))
+}
 
-configure(loadStories, module);
+configure(loadStories, module)

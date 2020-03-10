@@ -1,7 +1,7 @@
 body {
 	background-image: var(--body-background);
 	background-repeat: repeat;
-	font: 400 14px 'Montserrat', sans-serif;
+	font: 400 14px "Montserrat", sans-serif;
 }
 
 :root {
@@ -9,15 +9,15 @@ body {
 
 	--navigation-font-size: 12px;
 
-	--body-background: url('assets/image/background/binding_dark.png');
-	
+	--body-background: url("assets/image/background/binding_dark.png");
+
 	--highlight-color: rgba(0, 123, 255, 0.5);
 	--box-shadow: 0 0 0 2.5px var(--highlight-color);
-	
+
 	--button-background: #007bff;
 	--button-font-color: #ffffff;
 
-	--button-hover-background: #0069D9;
+	--button-hover-background: #0069d9;
 	--button-hover-border-color: #0062cc;
 
 	--button-active-background: #0062cc;
@@ -26,10 +26,10 @@ body {
 	--button-disabled-background: #8e99a5;
 	--button-disabled-font-color: #808080;
 
-	--header-background: url('assets/image/background/dark_wood.png');
-	--header-font-color: #ffd900; 
+	--header-background: url("assets/image/background/dark_wood.png");
+	--header-font-color: #ffd900;
 
-	--navigation-bar-background: url('assets/image/background/old_map.png');
+	--navigation-bar-background: url("assets/image/background/old_map.png");
 
 	--navigation-font-color: #000000;
 
@@ -39,6 +39,9 @@ body {
 	--navigation-item-secondary-color: #ffffff;
 	--navigation-item-primary-color: #d2b48c;
 
-	--navigation-item-background: radial-gradient(var(--navigation-item-secondary-color), var(--navigation-item-primary-color));
+	--navigation-item-background: radial-gradient(
+		var(--navigation-item-secondary-color),
+		var(--navigation-item-primary-color)
+	);
 	--navigation-item-border: 1px solid var(--navigation-item-primary-color);
 }
