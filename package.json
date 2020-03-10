@@ -13,7 +13,7 @@
 		"clean:node": "rimraf node_modules/*",
 		"healthcheck": "yarn lint && yarn build",
 		"lint": "yarn lint:js",
-		"lint:js": "eslint server/**/*.ts --fix | yarn prettier --write",
+		"lint:js": "eslint server/**/*.ts | yarn prettier --check",
 		"prettier": "prettier \"**/*.{json,md,js,ts,tsx,jsx,css}\"",
 		"start": "yarn lint && yarn build && node build/server.js",
 		"start:client": "cd client && yarn start",

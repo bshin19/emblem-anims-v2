@@ -1,4 +1,7 @@
-import { cleanCollection as dbCleanCollection, connect as dbConnect } from "./database/db"
+import {
+	cleanCollection as dbCleanCollection,
+	connect as dbConnect
+} from "./database/db"
 import { driveSearchAnims } from "./drive/drive-search-anims"
 import { config as envConfig } from "dotenv"
 import { router } from "./route"
