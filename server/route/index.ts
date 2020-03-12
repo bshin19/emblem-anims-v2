@@ -1,9 +1,16 @@
-import { Router } from "express"
-// import { apiRoutes } from "./api";
-// import { htmlRoutes } from "./html"
+import { Request, Response, Router } from "express"
+import { apiRouter } from "./api"
+import path from "path"
 
 export const router = Router()
 
-// router.use("/api", apiRoutes);
+// React router handles all html routing other than the base request
+const htmlRoute = (req: Request, res: Response): void => {
+	// eslint-disable-next-line
+	// @ts-ignore for some reason typescript is not finding the full typedef of response...
+	res.sendFile(path.join(__dirname, "../../client/build/index.html"))
+}
 
-// router.use(htmlRoutes)
+router.use("/api", apiRouter)
+
+router.use(htmlRoute)

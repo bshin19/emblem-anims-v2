@@ -6,6 +6,7 @@ import { driveSearchAnims } from "./drive/drive-search-anims"
 import { config as envConfig } from "dotenv"
 import { router } from "./route"
 import { staticAssetsToMongo } from "./local-env-utils.js"
+import { textSearch } from "./database/generic.db.get"
 import bodyParser from "body-parser"
 import express from "express"
 
@@ -40,9 +41,12 @@ if (LOCAL_TEST) {
 		})
 	})
 } else {
-	dbConnect()
-	app.listen(PORT, (): void => {
-		// eslint-disable-next-line
-		console.log("App listening on PORT " + PORT)
+	dbConnect().then(() => {
+		app.listen(PORT, (): void => {
+			// eslint-disable-next-line
+			console.log("App listening on PORT " + PORT)
+
+			textSearch('"Nino F" -el', "animations")
+		})
 	})
 }

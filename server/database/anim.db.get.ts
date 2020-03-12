@@ -8,7 +8,7 @@ import assert from "assert"
 export const animSearchByValues = (
 	options: Partial<Anim>,
 	collectionName: string
-): void => {
+): Promise<Array<any>> =>
 	connect().then(
 		(db: Db | void): Promise<Array<any>> =>
 			new Promise<Array<any>>(resolve => {
@@ -24,4 +24,3 @@ export const animSearchByValues = (
 				}
 			})
 	)
-}
