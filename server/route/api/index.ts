@@ -12,7 +12,7 @@ apiRouter.get(
 	(req: Request, res: Response) => {
 		// eslint-disable-next-line
 		// @ts-ignore for some reason typescript is not finding the full typedef of response...
-		textSearch(req.params.text, req.params.collection).then(response =>
+		textSearch(req.params.text, req.params.collection).then((response) =>
 			// eslint-disable-next-line
 			// @ts-ignore for some reason typescript is not finding the full typedef of response...
 			res.json(response)
@@ -23,7 +23,7 @@ apiRouter.get(
 apiRouter.get("/search/:collection", (req: Request, res: Response) => {
 	// eslint-disable-next-line
 	// @ts-ignore for some reason typescript is not finding the full typedef of response...
-	genericSearchByValues(req.query, req.params.collection).then(response =>
+	genericSearchByValues(req.query, req.params.collection).then((response) =>
 		// eslint-disable-next-line
 		// @ts-ignore for some reason typescript is not finding the full typedef of response...
 		res.json(response)

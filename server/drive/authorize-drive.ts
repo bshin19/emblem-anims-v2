@@ -25,4 +25,4 @@ export const authorize = (): Promise<void | JWT> =>
 				resolve(JwtClient)
 			}
 		})
-	}).catch(error => console.log(error))
+	}).catch((error) => console.log(error))

@@ -8,28 +8,28 @@ const useStyles = makeStyles({
 		borderRadius: "0 6px 6px 0",
 		backgroundColor: "#007bff",
 		"&:hover": {
-			backgroundColor: "#0069D9"
-		}
+			backgroundColor: "#0069D9",
+		},
 	},
 	navigationSearchWrapper: {
 		flex: "2 1 100%",
 		display: "flex",
 		height: "30px",
-		margin: "0 4px 0 8px"
+		margin: "0 4px 0 8px",
 	},
 	navigationSearch: {
 		height: "100%",
 		width: "100%",
 		'&[type="text"]': {
 			borderRadius: "6px 0 0 6px",
-			border: "none"
-		}
-	}
+			border: "none",
+		},
+	},
 })
 
-export const NavigationSearch = (): ReactElement<HTMLAttributes<
-	HTMLUListElement
->> => {
+export const NavigationSearch = (): ReactElement<
+	HTMLAttributes<HTMLUListElement>
+> => {
 	const classes = useStyles()
 
 	return (
@@ -45,7 +45,7 @@ export const NavigationSearch = (): ReactElement<HTMLAttributes<
 			<IconButton
 				size="small"
 				classes={{
-					root: classes.root
+					root: classes.root,
 				}}>
 				<SearchIcon />
 			</IconButton>

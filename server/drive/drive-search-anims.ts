@@ -3,7 +3,7 @@ import {
 	Weapon,
 	makeAnim,
 	makeSkillAnim,
-	makeSpellAnim
+	makeSpellAnim,
 } from "./anim.definitions"
 import { assetsToDB } from "../database/assets-to-db"
 import { authorize } from "./authorize-drive"
@@ -13,7 +13,7 @@ import Bottleneck from "bottleneck"
 // Setup a default limiter that, when repeated, prevents requests from overloading google's permitted amount per 100 seconds
 const limiter = new Bottleneck({
 	minTime: 200,
-	maxConcurrent: 6
+	maxConcurrent: 6,
 })
 
 /**
@@ -32,7 +32,7 @@ const searchWeaponIds = (
 					{
 						q: `parents in '${passedFile.id}'`,
 						// supportsAllDrives: true,
-						fields: "files(id, name)"
+						fields: "files(id, name)",
 						// includeItemsFromAllDrives: true
 					},
 					(err: Error | null, res) => {
@@ -43,7 +43,7 @@ const searchWeaponIds = (
 						if (files && files.length) {
 							const weapon: Partial<Weapon> = { type: weaponName }
 
-							files.map(file => {
+							files.map((file) => {
 								if (file.name === `${weaponName}_000.png`) {
 									weapon.static = file.id || ""
 								} else if (file.name === `${weaponName}.gif`) {
@@ -58,7 +58,7 @@ const searchWeaponIds = (
 					}
 				)
 			})
-			.catch(error => console.log(error))
+			.catch((error) => console.log(error))
 	})
 
 /**
@@ -74,7 +74,7 @@ const searchWeapons = (
 			.schedule((): any =>
 				drive.files.list(
 					{
-						q: `mimeType = 'application/vnd.google-apps.folder' and parents in '${passedFile.id}'`
+						q: `mimeType = 'application/vnd.google-apps.folder' and parents in '${passedFile.id}'`,
 						// supportsAllDrives: true,
 						// includeItemsFromAllDrives: true
 					},
@@ -87,10 +87,10 @@ const searchWeapons = (
 							Promise.all(
 								files
 									.filter(
-										file =>
+										(file) =>
 											file && file.name && file.name.match(/[1-9]. (?:.*)/)
 									)
-									.map(file => {
+									.map((file) => {
 										let weaponName: string | Array<string> | undefined | null =
 											file &&
 											file.name &&
@@ -100,7 +100,7 @@ const searchWeapons = (
 
 										return searchWeaponIds(drive, file, String(weaponName))
 									})
-							).then(weapons => {
+							).then((weapons) => {
 								// console.log(weapons)
 								resolve(weapons)
 							})
@@ -111,7 +111,7 @@ const searchWeapons = (
 					}
 				)
 			)
-			.catch(error => console.log(error))
+			.catch((error) => console.log(error))
 	})
 
 /**
@@ -128,7 +128,7 @@ const searchSkills = (
 				drive.files.list(
 					{
 						q: `parents in '${passedFile.id}'`,
-						fields: "files(id, name)"
+						fields: "files(id, name)",
 						// supportsAllDrives: true,
 						// includeItemsFromAllDrives: true
 					},
@@ -141,7 +141,7 @@ const searchSkills = (
 
 						if (files && files.length) {
 							const weapon: Partial<Weapon> = { type: weaponName }
-							files.map(file => {
+							files.map((file) => {
 								if (file.name === `${weaponName}_g000.png`) {
 									weapon.static = file.id || ""
 								} else if (file.name === `${weaponName}.gif`) {
@@ -156,7 +156,7 @@ const searchSkills = (
 					}
 				)
 			)
-			.catch(error => console.log(error))
+			.catch((error) => console.log(error))
 	})
 
 /**
@@ -173,7 +173,7 @@ const searchSpells = (
 				drive.files.list(
 					{
 						q: `parents in '${passedFile.id}'`,
-						fields: "files(id, name)"
+						fields: "files(id, name)",
 						// supportsAllDrives: true,
 						// includeItemsFromAllDrives: true
 					},
@@ -186,7 +186,7 @@ const searchSpells = (
 
 						if (files && files.length) {
 							const weapon: Partial<Weapon> = { type: weaponName }
-							files.map(file => {
+							files.map((file) => {
 								if (file.name === `${weaponName}_b_001.png`) {
 									weapon.static = file.id || ""
 								} else if (file.name === `${weaponName}.gif`) {
@@ -201,7 +201,7 @@ const searchSpells = (
 					}
 				)
 			)
-			.catch(error => console.log(error))
+			.catch((error) => console.log(error))
 	})
 
 /**
@@ -225,7 +225,7 @@ const searchAnims = (
 				{
 					// q: `mimeType = 'application/vnd.google-apps.folder' and name = '[T3][CAV][Master Knight][F]{St jack}' and parents in '1JSmqv89W0tvlRUHNaaqJep3GZm1oxj9q'`,
 					q: `mimeType = 'application/vnd.google-apps.folder' and parents in '${passedFile.id}'`,
-					fields: "files(id, name, webViewLink)"
+					fields: "files(id, name, webViewLink)",
 					// supportsAllDrives: true,
 					// includeItemsFromAllDrives: true
 				},
@@ -248,7 +248,7 @@ const searchAnims = (
 										}
 									)
 								} else if (passedFile.name === "8. Skills") {
-									return searchSkills(drive, file).then(weapons => {
+									return searchSkills(drive, file).then((weapons) => {
 										const anim = makeSkillAnim(file)
 										if (weapons) {
 											anim.weapons = weapons
@@ -256,7 +256,7 @@ const searchAnims = (
 										return anim
 									})
 								}
-								return searchWeapons(drive, file).then(weapons => {
+								return searchWeapons(drive, file).then((weapons) => {
 									const anim = makeAnim(file)
 									if (weapons) {
 										anim.weapons = weapons
@@ -265,8 +265,8 @@ const searchAnims = (
 								})
 							})
 						)
-							.then(anims => resolve(anims))
-							.catch(error => console.log(error))
+							.then((anims) => resolve(anims))
+							.catch((error) => console.log(error))
 					} else {
 						console.log(`No files found for: ${passedFile.name}`)
 						resolve({})
@@ -286,7 +286,7 @@ const searchBattleAnimations = (drive: driveV3.Drive): void => {
 	drive.files.list(
 		{
 			q:
-				"mimeType = 'application/vnd.google-apps.folder' and parents in '1UOuAig00S1s280J6A8bkVDIFX8RIcIWx'"
+				"mimeType = 'application/vnd.google-apps.folder' and parents in '1UOuAig00S1s280J6A8bkVDIFX8RIcIWx'",
 			// supportsAllDrives: true,
 			// includeItemsFromAllDrives: true
 		},
@@ -294,7 +294,7 @@ const searchBattleAnimations = (drive: driveV3.Drive): void => {
 			if (err) throw err
 			const files = res && res.data && res.data.files
 			if (files && files.length) {
-				Promise.all(files.map(file => searchAnims(drive, file))).then(
+				Promise.all(files.map((file) => searchAnims(drive, file))).then(
 					(animsArrays: Array<Anims> | any): void | PromiseLike<void> => {
 						const animations = [].concat(...animsArrays)
 						assetsToDB(animations, "animations")
@@ -320,7 +320,7 @@ export const driveSearchAnims = async (): Promise<void> => {
 	if (auth) {
 		const drive = google.drive({
 			version: "v3",
-			auth
+			auth,
 		})
 		searchBattleAnimations(drive)
 	}

@@ -11,30 +11,30 @@ const drawerWidth = 240
 const useStyles = makeStyles((theme: Theme) =>
 	createStyles({
 		root: {
-			display: "flex"
+			display: "flex",
 		},
 		content: {
 			flexGrow: 1,
 			padding: theme.spacing(3),
 			transition: theme.transitions.create("margin", {
 				easing: theme.transitions.easing.sharp,
-				duration: theme.transitions.duration.leavingScreen
+				duration: theme.transitions.duration.leavingScreen,
 			}),
-			marginLeft: -drawerWidth
+			marginLeft: -drawerWidth,
 		},
 		contentShift: {
 			transition: theme.transitions.create("margin", {
 				easing: theme.transitions.easing.easeOut,
-				duration: theme.transitions.duration.enteringScreen
+				duration: theme.transitions.duration.enteringScreen,
 			}),
-			marginLeft: 0
+			marginLeft: 0,
 		},
 		drawerHeader: {
 			display: "flex",
 			alignItems: "center",
 			minHeight: "72px",
-			justifyContent: "flex-end"
-		}
+			justifyContent: "flex-end",
+		},
 	})
 )
 
@@ -51,7 +51,7 @@ const App = (): ReactElement => {
 					<Sidebar isOpen={isOpen} />
 					<main
 						className={clsx(classes.content, {
-							[classes.contentShift]: isOpen
+							[classes.contentShift]: isOpen,
 						})}>
 						<div className={classes.drawerHeader} />
 					</main>

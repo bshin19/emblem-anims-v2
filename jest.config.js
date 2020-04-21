@@ -7,7 +7,7 @@ module.exports = {
 		"index.ts$",
 		"/story-examples/",
 		"client",
-		"build"
+		"build",
 	],
 	setupFilesAfterEnv: ["<rootDir>util/test-init.ts"],
 	coverageThreshold: {
@@ -15,12 +15,12 @@ module.exports = {
 			branches: 90,
 			functions: 90,
 			lines: 90,
-			statements: 90
-		}
+			statements: 90,
+		},
 	},
 	globals: {
-		"ts-jest": { tsConfig: "tsconfig.test.json" }
+		"ts-jest": { tsConfig: "tsconfig.test.json" },
 	},
 	roots: ["<rootDir>/client/src/"],
-	snapshotSerializers: ["enzyme-to-json/serializer"]
+	snapshotSerializers: ["enzyme-to-json/serializer"],
 }

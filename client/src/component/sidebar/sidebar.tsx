@@ -5,7 +5,7 @@ import { Divider, Drawer, IconButton, Menu } from "@material-ui/core"
 import MoreVertIcon from "@material-ui/icons/MoreVert"
 import {
 	SidebarClassOptionsValues,
-	SidebarClassOptions
+	SidebarClassOptions,
 } from "./sidebar-class-options"
 import { SidebarClasses } from "./sidebar-classes"
 import { SidebarSpells } from "./sidebar-spells"
@@ -16,34 +16,34 @@ const useStyles = makeStyles(() =>
 	createStyles({
 		drawer: {
 			width: drawerWidth,
-			flexShrink: 0
+			flexShrink: 0,
 		},
 		drawerPaper: {
 			width: drawerWidth,
 			marginTop: "70px",
-			height: "calc(100% - 70px)"
+			height: "calc(100% - 70px)",
 		},
 		drawerHeader: {
 			display: "flex",
 			alignItems: "center",
 			justifyContent: "space-between",
-			padding: "2px 6px"
+			padding: "2px 6px",
 		},
 		sidebarSubHeader: {
 			display: "flex",
 			padding: "4px 0",
-			justifyContent: "center"
+			justifyContent: "center",
 		},
 		drawerFullWidth: {
-			marginRight: "-6px"
+			marginRight: "-6px",
 		},
 		drawerHeaderSpacing: {
 			width: "18px",
-			height: "1px"
+			height: "1px",
 		},
 		optionsMenu: {
-			padding: "6px"
-		}
+			padding: "6px",
+		},
 	})
 )
 
@@ -71,7 +71,7 @@ export const Sidebar = ({ isOpen }: SidebarProps): any => {
 			anchor="left"
 			open={isOpen}
 			classes={{
-				paper: classes.drawerPaper
+				paper: classes.drawerPaper,
 			}}>
 			<div className={classes.drawerHeader}>
 				<div className={classes.drawerHeaderSpacing} />

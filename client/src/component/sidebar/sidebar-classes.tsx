@@ -25,13 +25,13 @@ const useStyles = makeStyles(() =>
 	createStyles({
 		classIcon: {
 			maxWidth: "16px",
-			maxHeight: "16px"
+			maxHeight: "16px",
 		},
 		classIconWrapper: {
 			width: "20px",
 			height: "16px",
-			display: "flex"
-		}
+			display: "flex",
+		},
 	})
 )
 
@@ -73,7 +73,7 @@ const makeCategoryPretty = ({ category }: PrettyCategoryProps): string => {
 }
 
 export const SidebarClasses: FC<SidebarClassesProps> = ({
-	classSortStyle
+	classSortStyle,
 }: SidebarClassesProps) => {
 	const classes = useStyles()
 	const history = useHistory()
@@ -83,7 +83,7 @@ export const SidebarClasses: FC<SidebarClassesProps> = ({
 			(current, index, self): boolean => {
 				if (current.tier && current.category && current.feClass) {
 					return (
-						self.findIndex(prev => prev.feClass === current.feClass) === index
+						self.findIndex((prev) => prev.feClass === current.feClass) === index
 					)
 				} else return false
 			}
@@ -110,7 +110,7 @@ export const SidebarClasses: FC<SidebarClassesProps> = ({
 		},
 		{
 			tiers: [],
-			categories: []
+			categories: [],
 		}
 	)
 
@@ -119,7 +119,7 @@ export const SidebarClasses: FC<SidebarClassesProps> = ({
 			{classSortStyle === "tier"
 				? sortOptions.tiers
 						.sort((a, b) => (a < b ? -1 : a > b ? 1 : 0))
-						.map(tier => {
+						.map((tier) => {
 							const prettyTierName = tier.replace(/T/, "Tier ")
 							return (
 								<StyledTreeItem
@@ -136,7 +136,7 @@ export const SidebarClasses: FC<SidebarClassesProps> = ({
 													: 0
 											)
 											.map(
-												animGrouping =>
+												(animGrouping) =>
 													animGrouping.tier === tier && (
 														<StyledTreeItem
 															key={animGrouping.feClass}
@@ -164,7 +164,7 @@ export const SidebarClasses: FC<SidebarClassesProps> = ({
 				: classSortStyle === "category"
 				? sortOptions.categories
 						.sort((a, b) => (a < b ? -1 : a > b ? 1 : 0))
-						.map(category => {
+						.map((category) => {
 							const prettyCategoryName = makeCategoryPretty({ category })
 							return (
 								<StyledTreeItem
@@ -181,7 +181,7 @@ export const SidebarClasses: FC<SidebarClassesProps> = ({
 													: 0
 											)
 											.map(
-												animGrouping =>
+												(animGrouping) =>
 													animGrouping.category === category && (
 														<StyledTreeItem
 															labelIcon={

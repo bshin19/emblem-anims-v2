@@ -7,13 +7,13 @@ import {
 	RadioGroup,
 	makeStyles,
 	createStyles,
-	Typography
+	Typography,
 } from "@material-ui/core"
 
 export enum SidebarClassOptionsValues {
 	Tier = "tier",
 	Category = "category",
-	Alphabetical = "alphabetical"
+	Alphabetical = "alphabetical",
 }
 
 interface SidebarClassOptionsProps {
@@ -24,17 +24,17 @@ interface SidebarClassOptionsProps {
 const useStyles = makeStyles(() =>
 	createStyles({
 		root: {
-			paddingLeft: "12px"
+			paddingLeft: "12px",
 		},
 		radioText: {
-			fontSize: "10px"
+			fontSize: "10px",
 		},
 		optionsRadio: {
-			padding: "3px"
+			padding: "3px",
 		},
 		formLabelRoot: {
-			color: "#3f51b5"
-		}
+			color: "#3f51b5",
+		},
 	})
 )
 

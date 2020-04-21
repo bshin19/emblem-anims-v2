@@ -20,8 +20,8 @@ storiesOf("Deprecation/Navigation Bar", module).add(
 						"Thief",
 						"Assassin",
 						"Rogue",
-						"Custom Sword"
-					]
+						"Custom Sword",
+					],
 				}}
 			/>
 		</div>

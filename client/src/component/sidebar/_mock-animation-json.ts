@@ -2,394 +2,394 @@ export const mockAnimationJSON = [
 	{
 		tier: "T0",
 		category: "SWD",
-		feClass: "Squire"
+		feClass: "Squire",
 	},
 	{
 		tier: "T0",
 		category: "SWD",
-		feClass: "Squire"
+		feClass: "Squire",
 	},
 	{
 		tier: "T1",
 		category: "SWD",
-		feClass: "Myrmidon"
+		feClass: "Myrmidon",
 	},
 	{
 		tier: "T1",
 		category: "SWD",
-		feClass: "Thief"
+		feClass: "Thief",
 	},
 	{
 		tier: "T1",
 		category: "SWD",
-		feClass: "Mercenary"
+		feClass: "Mercenary",
 	},
 	{
 		tier: "T2",
 		category: "SWD",
-		feClass: "Swordmaster"
+		feClass: "Swordmaster",
 	},
 	{
 		tier: "T2",
 		category: "SWD",
-		feClass: "Assassin"
+		feClass: "Assassin",
 	},
 	{
 		tier: "T2",
 		category: "SWD",
-		feClass: "Rogue"
+		feClass: "Rogue",
 	},
 	{
 		tier: "T2",
 		category: "SWD",
-		feClass: "Hero"
+		feClass: "Hero",
 	},
 	{
 		tier: "T2",
 		category: "SWD",
-		feClass: "Custom Sword"
+		feClass: "Custom Sword",
 	},
 	{
 		tier: "T0",
 		category: "LNC",
-		feClass: "Recruit"
+		feClass: "Recruit",
 	},
 	{
 		tier: "T1",
 		category: "LNC",
-		feClass: "Soldier"
+		feClass: "Soldier",
 	},
 	{
 		tier: "T2",
 		category: "LNC",
-		feClass: "Halberdier"
+		feClass: "Halberdier",
 	},
 	{
 		tier: "T0",
 		category: "AXE",
-		feClass: "Journeyman"
+		feClass: "Journeyman",
 	},
 	{
 		tier: "T1",
 		category: "AXE",
-		feClass: "Fighter"
+		feClass: "Fighter",
 	},
 	{
 		tier: "T1",
 		category: "AXE",
-		feClass: "Pirate"
+		feClass: "Pirate",
 	},
 	{
 		tier: "T1",
 		category: "AXE",
-		feClass: "Brigand"
+		feClass: "Brigand",
 	},
 	{
 		tier: "T2",
 		category: "AXE",
-		feClass: "Berserker"
+		feClass: "Berserker",
 	},
 	{
 		tier: "T2",
 		category: "AXE",
-		feClass: "Warrior"
+		feClass: "Warrior",
 	},
 	{
 		tier: "T2",
 		category: "AXE",
-		feClass: "Custom Axe"
+		feClass: "Custom Axe",
 	},
 	{
 		tier: "T0",
 		category: "BOW",
-		feClass: "Ballista"
+		feClass: "Ballista",
 	},
 	{
 		tier: "T1",
 		category: "BOW",
-		feClass: "Archer"
+		feClass: "Archer",
 	},
 	{
 		tier: "T2",
 		category: "BOW",
-		feClass: "Sniper"
+		feClass: "Sniper",
 	},
 	{
 		tier: "T1",
 		category: "BOW",
-		feClass: "Nomad"
+		feClass: "Nomad",
 	},
 	{
 		tier: "T2",
 		category: "BOW",
-		feClass: "Ranger"
+		feClass: "Ranger",
 	},
 	{
 		tier: "T1",
 		category: "ARM",
-		feClass: "Knight"
+		feClass: "Knight",
 	},
 	{
 		tier: "T2",
 		category: "ARM",
-		feClass: "General"
+		feClass: "General",
 	},
 	{
 		tier: "T3",
 		category: "ARM",
-		feClass: "Marshall"
+		feClass: "Marshall",
 	},
 	{
 		tier: "T1",
 		category: "CAV",
-		feClass: "Cavalier"
+		feClass: "Cavalier",
 	},
 	{
 		tier: "T2",
 		category: "CAV",
-		feClass: "Paladin"
+		feClass: "Paladin",
 	},
 	{
 		tier: "T2",
 		category: "CAV",
-		feClass: "Great Knight"
+		feClass: "Great Knight",
 	},
 	{
 		tier: "T3",
 		category: "CAV",
-		feClass: "Master Knight"
+		feClass: "Master Knight",
 	},
 	{
 		tier: "T0",
 		category: "CAV",
-		feClass: "Custom Cavalry"
+		feClass: "Custom Cavalry",
 	},
 	{
 		tier: "T1",
 		category: "FLY",
-		feClass: "Pegasus Knight"
+		feClass: "Pegasus Knight",
 	},
 	{
 		tier: "T1",
 		category: "FLY",
-		feClass: "Wyvern Rider"
+		feClass: "Wyvern Rider",
 	},
 	{
 		tier: "T2",
 		category: "FLY",
-		feClass: "Falcon Knight"
+		feClass: "Falcon Knight",
 	},
 	{
 		tier: "T2",
 		category: "FLY",
-		feClass: "Griffon Knight"
+		feClass: "Griffon Knight",
 	},
 	{
 		tier: "T2",
 		category: "FLY",
-		feClass: "Wyvern Lord"
+		feClass: "Wyvern Lord",
 	},
 	{
 		tier: "T2",
 		category: "FLY",
-		feClass: "Wyvern Knight"
+		feClass: "Wyvern Knight",
 	},
 	{
 		tier: "T0",
 		category: "FLY",
-		feClass: "Custom Flier"
+		feClass: "Custom Flier",
 	},
 	{
 		tier: "T1",
 		category: "LRD",
-		feClass: "Lord"
+		feClass: "Lord",
 	},
 	{
 		tier: "T2",
 		category: "LRD",
-		feClass: "Great Lord"
+		feClass: "Great Lord",
 	},
 	{
 		tier: "T1",
 		category: "MISC",
-		feClass: "Refresh"
+		feClass: "Refresh",
 	},
 	{
 		tier: "T1",
 		category: "MISC",
-		feClass: "Miscellaneous"
+		feClass: "Miscellaneous",
 	},
 	{
 		tier: "T1",
 		category: "MISC",
-		feClass: "Crossover"
+		feClass: "Crossover",
 	},
 	{
 		tier: "T0",
 		category: "MAG",
-		feClass: "Pupil"
+		feClass: "Pupil",
 	},
 	{
 		tier: "T1",
 		category: "MAG",
-		feClass: "Mage"
+		feClass: "Mage",
 	},
 	{
 		tier: "T1",
 		category: "MAG",
-		feClass: "Clergy"
+		feClass: "Clergy",
 	},
 	{
 		tier: "T1",
 		category: "MAG",
-		feClass: "Monk"
+		feClass: "Monk",
 	},
 	{
 		tier: "T1",
 		category: "MAG",
-		feClass: "Shaman"
+		feClass: "Shaman",
 	},
 	{
 		tier: "T1",
 		category: "MAG",
-		feClass: "Troubadour"
+		feClass: "Troubadour",
 	},
 	{
 		tier: "T2",
 		category: "MAG",
-		feClass: "Sage"
+		feClass: "Sage",
 	},
 	{
 		tier: "T2",
 		category: "MAG",
-		feClass: "Bishop"
+		feClass: "Bishop",
 	},
 	{
 		tier: "T2",
 		category: "MAG",
-		feClass: "Druid"
+		feClass: "Druid",
 	},
 	{
 		tier: "T2",
 		category: "MAG",
-		feClass: "Summoner"
+		feClass: "Summoner",
 	},
 	{
 		tier: "T2",
 		category: "MAG",
-		feClass: "Valkyrie"
+		feClass: "Valkyrie",
 	},
 	{
 		tier: "T2",
 		category: "MAG",
-		feClass: "Dark Knight"
+		feClass: "Dark Knight",
 	},
 	{
 		tier: "T2",
 		category: "MAG",
-		feClass: "Mage Knight"
+		feClass: "Mage Knight",
 	},
 	{
 		tier: "T3",
 		category: "MAG",
-		feClass: "Archsage"
+		feClass: "Archsage",
 	},
 	{
 		tier: "T3",
 		category: "MAG",
-		feClass: "Saint"
+		feClass: "Saint",
 	},
 	{
 		tier: "T3",
 		category: "MAG",
-		feClass: "Necromancer"
+		feClass: "Necromancer",
 	},
 	{
 		tier: "T0",
 		category: "MAG",
-		feClass: "Custom Magi"
+		feClass: "Custom Magi",
 	},
 	{
 		tier: "T1",
 		category: "MON",
-		feClass: "Undead"
+		feClass: "Undead",
 	},
 	{
 		tier: "T1",
 		category: "MON",
-		feClass: "Demon"
+		feClass: "Demon",
 	},
 	{
 		tier: "T1",
 		category: "MON",
-		feClass: "Mauthe Doog"
+		feClass: "Mauthe Doog",
 	},
 	{
 		tier: "T1",
 		category: "MON",
-		feClass: "Manakete"
+		feClass: "Manakete",
 	},
 	{
 		tier: "T3",
 		category: "MON",
-		feClass: "Dragon"
+		feClass: "Dragon",
 	},
 	{
 		tier: "T1",
 		category: "MON",
-		feClass: "Shapeshifter"
+		feClass: "Shapeshifter",
 	},
 	{
 		tier: "T0",
 		category: "MON",
-		feClass: "Custom Monster"
+		feClass: "Custom Monster",
 	},
 	{
 		school: "Anima",
 		category: "SPL",
-		element: ""
+		element: "",
 	},
 	{
 		school: "Anima",
 		category: "SPL",
-		element: "Fire"
+		element: "Fire",
 	},
 	{
 		school: "Anima",
 		category: "SPL",
-		element: "Water"
+		element: "Water",
 	},
 	{
 		school: "Anima",
 		category: "SPL",
-		element: "Wind"
+		element: "Wind",
 	},
 	{
 		school: "Anima",
 		category: "SPL",
-		element: "Earth"
+		element: "Earth",
 	},
 	{
 		school: "Anima",
 		category: "SPL",
-		element: "Thunder"
+		element: "Thunder",
 	},
 	{
 		school: "Dark",
 		category: "SPL",
-		element: ""
+		element: "",
 	},
 	{
 		school: "Light",
 		category: "SPL",
-		element: ""
+		element: "",
 	},
 	{
 		school: "Other",
 		category: "SPL",
-		element: ""
+		element: "",
 	},
 	{
-		category: "SKL"
-	}
+		category: "SKL",
+	},
 ]

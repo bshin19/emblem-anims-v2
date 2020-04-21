@@ -3,22 +3,22 @@ module.exports = {
 		browser: true,
 		es6: true,
 		"jest/globals": true,
-		node: true
+		node: true,
 	},
 	extends: [
 		"eslint:recommended",
 		"plugin:jest/recommended",
-		"plugin:@typescript-eslint/recommended"
+		"plugin:@typescript-eslint/recommended",
 	],
 	globals: {
 		Atomics: "readonly",
-		SharedArrayBuffer: "readonly"
+		SharedArrayBuffer: "readonly",
 	},
 	parser: "@typescript-eslint/parser",
 	parserOptions: {
 		ecmaVersion: 2018,
 		project: "./tsconfig.json",
-		sourceType: "module"
+		sourceType: "module",
 	},
 	plugins: ["jest", "@typescript-eslint", "sort-imports-es6-autofix"],
 	rules: {
@@ -26,23 +26,23 @@ module.exports = {
 			"error",
 			"never",
 			{
-				objectsInArrays: true
-			}
+				objectsInArrays: true,
+			},
 		],
 		"arrow-spacing": [
 			"error",
 			{
 				before: true,
-				after: true
-			}
+				after: true,
+			},
 		],
 		"block-spacing": ["error", "always"],
 		"comma-spacing": [
 			"error",
 			{
 				before: false,
-				after: true
-			}
+				after: true,
+			},
 		],
 		"comma-style": ["error", "last"],
 		"eol-last": ["error", "always"],
@@ -55,15 +55,15 @@ module.exports = {
 		"key-spacing": [
 			"error",
 			{
-				beforeColon: false
-			}
+				beforeColon: false,
+			},
 		],
 		"keyword-spacing": [
 			"error",
 			{
 				before: true,
-				after: true
-			}
+				after: true,
+			},
 		],
 		"new-parens": "error",
 		"no-duplicate-imports": "error",
@@ -75,8 +75,8 @@ module.exports = {
 			{
 				max: 1,
 				maxBOF: 1,
-				maxEOF: 0
-			}
+				maxEOF: 0,
+			},
 		],
 		"no-trailing-spaces": "error",
 		"no-unneeded-ternary": "error",
@@ -85,16 +85,16 @@ module.exports = {
 			"error",
 			{
 				vars: "all",
-				args: "none"
-			}
+				args: "none",
+			},
 		],
 		"no-use-before-define": [
 			"error",
 			{
 				functions: true,
 				classes: true,
-				variables: true
-			}
+				variables: true,
+			},
 		],
 		"no-useless-computed-key": "error",
 		"no-useless-constructor": "error",
@@ -107,8 +107,8 @@ module.exports = {
 			{
 				ignoreCase: false,
 				ignoreMemberSort: false,
-				memberSyntaxSortOrder: ["none", "all", "multiple", "single"]
-			}
+				memberSyntaxSortOrder: ["none", "all", "multiple", "single"],
+			},
 		],
 		"space-before-blocks": "error",
 		"space-before-function-paren": "error",
@@ -118,22 +118,22 @@ module.exports = {
 		"@typescript-eslint/array-type": [
 			"error",
 			{
-				default: "generic"
-			}
+				default: "generic",
+			},
 		],
 		"@typescript-eslint/camelcase": [
 			"error",
 			{
-				properties: "always"
-			}
+				properties: "always",
+			},
 		],
 		"@typescript-eslint/class-name-casing": "error",
 		"@typescript-eslint/consistent-type-assertions": [
 			"error",
 			{
 				assertionStyle: "as",
-				objectLiteralTypeAssertions: "allow-as-parameter"
-			}
+				objectLiteralTypeAssertions: "allow-as-parameter",
+			},
 		],
 		"@typescript-eslint/explicit-function-return-type": "error",
 		"@typescript-eslint/member-delimiter-style": [
@@ -141,13 +141,13 @@ module.exports = {
 			{
 				multiline: {
 					delimiter: "none",
-					requireLast: false
+					requireLast: false,
 				},
 				singleline: {
 					delimiter: "comma",
-					requireLast: false
-				}
-			}
+					requireLast: false,
+				},
+			},
 		],
 		"@typescript-eslint/no-empty-interface": "error",
 		"@typescript-eslint/no-explicit-any": 0,
@@ -164,8 +164,8 @@ module.exports = {
 			{
 				args: "none",
 				ignoreRestSiblings: false,
-				vars: "all"
-			}
+				vars: "all",
+			},
 		],
 		"@typescript-eslint/no-useless-constructor": "error",
 		"@typescript-eslint/no-var-requires": 0,
@@ -178,11 +178,11 @@ module.exports = {
 				overrides: {
 					arrow: {
 						before: true,
-						after: true
-					}
-				}
-			}
-		]
+						after: true,
+					},
+				},
+			},
+		],
 	},
 	overrides: [
 		{
@@ -190,12 +190,12 @@ module.exports = {
 				"server/**/*.js",
 				"server/**/*.jsx",
 				"server/**/*.ts",
-				"server/**/*.tsx"
+				"server/**/*.tsx",
 			],
 			rules: {
 				"no-unused-vars": ["off"],
-				"no-undef": ["off"]
-			}
-		}
-	]
+				"no-undef": ["off"],
+			},
+		},
+	],
 }

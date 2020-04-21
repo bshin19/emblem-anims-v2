@@ -15,15 +15,15 @@ const useTreeItemStyles = makeStyles((theme: Theme) =>
 		root: {
 			color: theme.palette.text.secondary,
 			"&:hover > $content": {
-				backgroundColor: theme.palette.action.hover
+				backgroundColor: theme.palette.action.hover,
 			},
 			"&:focus > $content, &$selected > $content": {
 				backgroundColor: `var(--tree-view-bg-color, ${theme.palette.grey[400]})`,
-				color: "var(--tree-view-color)"
+				color: "var(--tree-view-color)",
 			},
 			"&:focus > $content $label, &:hover > $content $label, &$selected > $content $label, &$selected > $content > $label:hover, &$selected:focus > $content > $label": {
-				backgroundColor: "transparent"
-			}
+				backgroundColor: "transparent",
+			},
 		},
 		content: {
 			color: theme.palette.text.secondary,
@@ -32,30 +32,30 @@ const useTreeItemStyles = makeStyles((theme: Theme) =>
 			paddingRight: theme.spacing(1),
 			fontWeight: theme.typography.fontWeightMedium,
 			"$expanded > &": {
-				fontWeight: theme.typography.fontWeightRegular
-			}
+				fontWeight: theme.typography.fontWeightRegular,
+			},
 		},
 		group: {
-			marginLeft: 0
+			marginLeft: 0,
 		},
 		expanded: {},
 		selected: {},
 		label: {
 			fontWeight: "inherit",
-			color: "inherit"
+			color: "inherit",
 		},
 		labelRoot: {
 			display: "flex",
 			alignItems: "center",
-			padding: theme.spacing(0.5, 0)
+			padding: theme.spacing(0.5, 0),
 		},
 		labelIcon: {
-			marginRight: theme.spacing(1)
+			marginRight: theme.spacing(1),
 		},
 		labelText: {
 			fontWeight: "inherit",
-			flexGrow: 1
-		}
+			flexGrow: 1,
+		},
 	})
 )
 
@@ -100,7 +100,7 @@ const StyledTreeItem = (props: StyledTreeItemProps): JSX.Element => {
 			// @ts-ignore
 			style={{
 				"--tree-view-color": color,
-				"--tree-view-bg-color": bgColor
+				"--tree-view-bg-color": bgColor,
 			}}
 			classes={{
 				root: classes.root,
@@ -108,7 +108,7 @@ const StyledTreeItem = (props: StyledTreeItemProps): JSX.Element => {
 				expanded: classes.expanded,
 				selected: classes.selected,
 				group: classes.group,
-				label: classes.label
+				label: classes.label,
 			}}
 			{...otherProps}
 		/>

@@ -95,7 +95,7 @@ export const makeAnim = (file: driveV3.Schema$File): Partial<Anim> => {
 		gender,
 		credit,
 		download,
-		dlName
+		dlName,
 	}
 }
 
@@ -151,6 +151,6 @@ export const makeSpellAnim = (
 		name,
 		credit,
 		download,
-		dlName
+		dlName,
 	}
 }

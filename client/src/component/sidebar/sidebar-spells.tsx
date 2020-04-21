@@ -14,13 +14,13 @@ const useStyles = makeStyles(() =>
 	createStyles({
 		classIcon: {
 			maxWidth: "16px",
-			maxHeight: "16px"
+			maxHeight: "16px",
 		},
 		classIconWrapper: {
 			width: "20px",
 			height: "16px",
-			display: "flex"
-		}
+			display: "flex",
+		},
 	})
 )
 
@@ -55,19 +55,20 @@ export const SidebarSpells = (): JSX.Element => {
 				// Element-typed magic prioritized
 				if (current.school && current.category && current.element) {
 					return (
-						self.findIndex(prev => prev.element === current.element) === index
+						self.findIndex((prev) => prev.element === current.element) === index
 					)
 				}
 				// Then schools of magic
 				else if (current.school && current.category) {
 					return (
-						self.findIndex(prev => prev.school === current.school) === index
+						self.findIndex((prev) => prev.school === current.school) === index
 					)
 				}
 				// Then skill
 				else if (current.category === "SKL") {
 					return (
-						self.findIndex(prev => prev.category === current.category) === index
+						self.findIndex((prev) => prev.category === current.category) ===
+						index
 					)
 				} else return false
 			}
@@ -81,7 +82,7 @@ export const SidebarSpells = (): JSX.Element => {
 				.sort((a, b) =>
 					a.category < b.category ? -1 : a.category > b.category ? 1 : 0
 				)
-				.map(spellGroup => {
+				.map((spellGroup) => {
 					const spellTitle = spellText(spellGroup)
 					return (
 						<StyledTreeItem

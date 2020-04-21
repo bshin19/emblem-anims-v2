@@ -15,19 +15,19 @@ const useStyles = makeStyles({
 		height: "35px",
 		justifyContent: "space-around",
 		width: "100%",
-		alignItems: "center"
+		alignItems: "center",
 	},
 	logoButton: {
-		marginLeft: "3px"
+		marginLeft: "3px",
 	},
 	logo: {
 		maxHeight: "31px",
 		margin: "-3px",
-		marginBottom: "-4px"
+		marginBottom: "-4px",
 	},
 	settingsButton: {
-		marginRight: "3px"
-	}
+		marginRight: "3px",
+	},
 })
 
 export const Header = (): JSX.Element => {

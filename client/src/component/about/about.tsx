@@ -7,7 +7,7 @@ import {
 	List,
 	ListItem,
 	Grid,
-	Link
+	Link,
 } from "@material-ui/core"
 
 export const About = (): ReactElement => (

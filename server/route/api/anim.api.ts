@@ -10,7 +10,7 @@ animRouter.get("/class/:class", (req: Request, res: Response) => {
 	// eslint-disable-next-line
 	// @ts-ignore for some reason typescript is not finding the full typedef of response...
 	animSearchByValues({ feClass: req.params.class }, "animations").then(
-		response =>
+		(response) =>
 			// eslint-disable-next-line
 			// @ts-ignore for some reason typescript is not finding the full typedef of response...
 			res.json(response)
@@ -20,7 +20,7 @@ animRouter.get("/class/:class", (req: Request, res: Response) => {
 animRouter.get("/search", (req: Request, res: Response) => {
 	// eslint-disable-next-line
 	// @ts-ignore for some reason typescript is not finding the full typedef of response...
-	animSearchByValues(req.query, "animations").then(response =>
+	animSearchByValues(req.query, "animations").then((response) =>
 		// eslint-disable-next-line
 		// @ts-ignore for some reason typescript is not finding the full typedef of response...
 		res.json(response)
@@ -30,7 +30,7 @@ animRouter.get("/search", (req: Request, res: Response) => {
 animRouter.get("/skill/search", (req: Request, res: Response) => {
 	// eslint-disable-next-line
 	// @ts-ignore for some reason typescript is not finding the full typedef of response...
-	skillAnimSearchByValues(req.query, "animations").then(response =>
+	skillAnimSearchByValues(req.query, "animations").then((response) =>
 		// eslint-disable-next-line
 		// @ts-ignore for some reason typescript is not finding the full typedef of response...
 		res.json(response)
@@ -40,7 +40,7 @@ animRouter.get("/skill/search", (req: Request, res: Response) => {
 animRouter.get("/spell/search", (req: Request, res: Response) => {
 	// eslint-disable-next-line
 	// @ts-ignore for some reason typescript is not finding the full typedef of response...
-	spellAnimSearchByValues(req.query, "animations").then(response =>
+	spellAnimSearchByValues(req.query, "animations").then((response) =>
 		// eslint-disable-next-line
 		// @ts-ignore for some reason typescript is not finding the full typedef of response...
 		res.json(response)

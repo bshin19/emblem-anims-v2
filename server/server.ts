@@ -1,6 +1,6 @@
 import {
 	cleanCollection as dbCleanCollection,
-	connect as dbConnect
+	connect as dbConnect,
 } from "./database/db"
 import { driveSearchAnims } from "./drive/drive-search-anims"
 import { config as envConfig } from "dotenv"

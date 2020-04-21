@@ -10,8 +10,8 @@ const useStyles = makeStyles(
 			height: 264,
 			flexGrow: 1,
 			maxWidth: 400,
-			padding: "1px 6px 0 0"
-		}
+			padding: "1px 6px 0 0",
+		},
 	})
 )
 

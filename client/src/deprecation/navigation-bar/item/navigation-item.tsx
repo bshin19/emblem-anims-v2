@@ -7,43 +7,43 @@ import {
 	ListItem,
 	ListItemText,
 	makeStyles,
-	Grid
+	Grid,
 } from "@material-ui/core"
 
 const useStyles = makeStyles({
 	root: {
 		height: "30px",
-		maxWidth: "9vw"
+		maxWidth: "9vw",
 	},
 	listRoot: {
 		height: "100%",
-		flex: "1"
+		flex: "1",
 	},
 	gridImage: {
 		alignSelf: "flex-end",
-		paddingBottom: "6px"
+		paddingBottom: "6px",
 	},
 	gridImageContainer: {
 		display: "flex",
 		maxWidth: "100%",
-		flexWrap: "nowrap"
+		flexWrap: "nowrap",
 	},
 	menuItemRoot: {
 		lineHeight: "unset",
-		fontSize: ".8rem"
+		fontSize: ".8rem",
 	},
 	listItemText: {
 		maxWidth: "100%",
-		minWidth: 0
+		minWidth: 0,
 	},
 	gridItemText: {
 		alignSelf: "center",
-		minWidth: 0
-	}
+		minWidth: 0,
+	},
 })
 
 export const NavigationItem: FC<NavigationItemType> = ({
-	item
+	item,
 }): ReactElement<HTMLAttributes<HTMLButtonElement>> => {
 	const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null)
 	const [selectedIndex, setSelectedIndex] = useState<null | number>(null)
@@ -72,14 +72,14 @@ export const NavigationItem: FC<NavigationItemType> = ({
 				component="nav"
 				aria-label={item.text}
 				classes={{
-					root: classes.listRoot
+					root: classes.listRoot,
 				}}
 				dense={true}
 				disablePadding={true}>
 				<ListItem
 					dense={true}
 					classes={{
-						root: classes.root
+						root: classes.root,
 					}}
 					disableGutters={true}
 					button
@@ -100,12 +100,12 @@ export const NavigationItem: FC<NavigationItemType> = ({
 						<Grid item classes={{ item: classes.gridItemText }}>
 							<ListItemText
 								classes={{
-									primary: classes.listItemText
+									primary: classes.listItemText,
 								}}
 								primaryTypographyProps={{
 									display: "block",
 									variant: "caption",
-									noWrap: true
+									noWrap: true,
 								}}
 								primary={
 									selectedIndex !== null
@@ -129,7 +129,7 @@ export const NavigationItem: FC<NavigationItemType> = ({
 							key={feClass}
 							dense
 							classes={{
-								root: classes.menuItemRoot
+								root: classes.menuItemRoot,
 							}}
 							onClick={(event): void => handleMenuItemClick(event, index)}
 							value={feClass}>

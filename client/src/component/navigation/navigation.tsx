@@ -19,14 +19,14 @@ const useStyles = makeStyles((theme: Theme) =>
 			zIndex: theme.zIndex.drawer + 1,
 			backgroundRepeat: "repeat",
 			backgroundImage: "var(--header-background)",
-			backgroundColor: "unset"
+			backgroundColor: "unset",
 		},
 		toolBar: {
-			minHeight: "35px"
+			minHeight: "35px",
 		},
 		menuButton: {
-			marginLeft: "3px"
-		}
+			marginLeft: "3px",
+		},
 	})
 )
 

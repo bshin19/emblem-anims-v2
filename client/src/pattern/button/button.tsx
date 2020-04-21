@@ -18,5 +18,5 @@ Button.propTypes = {
 	 * the child component(s) to render
 	 */
 	children: PropTypes.node.isRequired,
-	onClick: PropTypes.func
+	onClick: PropTypes.func,
 }

@@ -3,11 +3,11 @@ module.exports = {
 	parser: "@typescript-eslint/parser",
 	parserOptions: {
 		ecmaFeatures: {
-			jsx: true
+			jsx: true,
 		},
 		ecmaVersion: 2018,
 		project: "./client/tsconfig.json",
-		sourceType: "module"
+		sourceType: "module",
 	},
 	root: true,
 	rules: {
@@ -15,8 +15,8 @@ module.exports = {
 		"@typescript-eslint/array-type": [
 			"error",
 			{
-				default: "generic"
-			}
+				default: "generic",
+			},
 		],
 		"@typescript-eslint/camelcase": ["error", { properties: "always" }],
 		"@typescript-eslint/class-name-casing": "error",
@@ -24,8 +24,8 @@ module.exports = {
 			"error",
 			{
 				assertionStyle: "as",
-				objectLiteralTypeAssertions: "allow-as-parameter"
-			}
+				objectLiteralTypeAssertions: "allow-as-parameter",
+			},
 		],
 		"@typescript-eslint/explicit-function-return-type": "error",
 		"@typescript-eslint/member-delimiter-style": [
@@ -33,13 +33,13 @@ module.exports = {
 			{
 				multiline: {
 					delimiter: "none",
-					requireLast: false
+					requireLast: false,
 				},
 				singleline: {
 					delimiter: "comma",
-					requireLast: false
-				}
-			}
+					requireLast: false,
+				},
+			},
 		],
 		"@typescript-eslint/no-empty-interface": "error",
 		"@typescript-eslint/no-extraneous-class": "error",
@@ -52,7 +52,7 @@ module.exports = {
 		"@typescript-eslint/no-unnecessary-qualifier": "error",
 		"@typescript-eslint/no-unused-vars": [
 			"error",
-			{ args: "none", ignoreRestSiblings: false, vars: "all" }
+			{ args: "none", ignoreRestSiblings: false, vars: "all" },
 		],
 		"@typescript-eslint/no-useless-constructor": "error",
 		"@typescript-eslint/no-var-requires": 0,
@@ -62,8 +62,8 @@ module.exports = {
 			{
 				before: false,
 				after: true,
-				overrides: { arrow: { before: true, after: true } }
-			}
-		]
-	}
+				overrides: { arrow: { before: true, after: true } },
+			},
+		],
+	},
 }

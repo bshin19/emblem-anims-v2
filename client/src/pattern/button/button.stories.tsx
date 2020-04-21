@@ -4,7 +4,7 @@ import { Button } from "./button"
 
 export default {
 	title: "Patterns/Button/Standard",
-	component: Button
+	component: Button,
 }
 
 export const Text = (): JSX.Element => (

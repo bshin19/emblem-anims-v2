@@ -18,12 +18,12 @@ export const NavigationItemPropTypes = {
 	gif: PropTypes.string.isRequired,
 	htmlRef: PropTypes.string.isRequired,
 	text: PropTypes.string.isRequired,
-	dropdownDirection: PropTypes.string
+	dropdownDirection: PropTypes.string,
 }
 
 export const NavigationItemsPropTypes = {
 	item: PropTypes.shape(NavigationItemPropTypes).isRequired,
-	key: PropTypes.string
+	key: PropTypes.string,
 }
 
 export const navigationItems: Array<NavigationItemProps> = [
@@ -40,14 +40,14 @@ export const navigationItems: Array<NavigationItemProps> = [
 			"Thief",
 			"Assassin",
 			"Rogue",
-			"Custom Sword"
-		]
+			"Custom Sword",
+		],
 	},
 	{
 		text: "Lances",
 		gif: "_img/navigation-icon/Soldier.gif",
 		htmlRef: "LNC",
-		classArray: ["Recruit", "Soldier", "Halberdier"]
+		classArray: ["Recruit", "Soldier", "Halberdier"],
 	},
 	{
 		text: "Axes",
@@ -60,20 +60,20 @@ export const navigationItems: Array<NavigationItemProps> = [
 			"Berserker",
 			"Fighter",
 			"Warrior",
-			"Custom Axe"
-		]
+			"Custom Axe",
+		],
 	},
 	{
 		text: "Bows",
 		gif: "_img/navigation-icon/Archer.gif",
 		htmlRef: "BOW",
-		classArray: ["Archer", "Sniper", "Ballista", "Nomad", "Ranger"]
+		classArray: ["Archer", "Sniper", "Ballista", "Nomad", "Ranger"],
 	},
 	{
 		text: "Armor",
 		gif: "_img/navigation-icon/Knight.gif",
 		htmlRef: "ARM",
-		classArray: ["Knight", "General", "Marshall"]
+		classArray: ["Knight", "General", "Marshall"],
 	},
 	{
 		text: "Cavalry",
@@ -84,8 +84,8 @@ export const navigationItems: Array<NavigationItemProps> = [
 			"Paladin",
 			"Great Knight",
 			"Master Knight",
-			"Custom Cavalry"
-		]
+			"Custom Cavalry",
+		],
 	},
 	{
 		text: "Fliers",
@@ -98,15 +98,15 @@ export const navigationItems: Array<NavigationItemProps> = [
 			"Wyvern Rider",
 			"Wyvern Lord",
 			"Wyvern Knight",
-			"Custom Flier"
-		]
+			"Custom Flier",
+		],
 	},
 	{
 		text: "Unique",
 		gif: "_img/navigation-icon/Lord.gif",
 		htmlRef: "LRD",
 		classArray: ["Lord", "Great Lord", "Refresh", "Miscellaneous", "Crossover"],
-		dropdownDirection: "right"
+		dropdownDirection: "right",
 	},
 	{
 		text: "Magi",
@@ -129,9 +129,9 @@ export const navigationItems: Array<NavigationItemProps> = [
 			"Mage Knight",
 			"Valkyrie",
 			"Dark Knight",
-			"Custom Magi"
+			"Custom Magi",
 		],
-		dropdownDirection: "right"
+		dropdownDirection: "right",
 	},
 	{
 		text: "Monsters",
@@ -144,15 +144,15 @@ export const navigationItems: Array<NavigationItemProps> = [
 			"Manakete",
 			"Dragon",
 			"Shapeshifter",
-			"Custom Monster"
+			"Custom Monster",
 		],
-		dropdownDirection: "right"
+		dropdownDirection: "right",
 	},
 	{
 		text: "Spells",
 		gif: "_img/navigation-icon/tome.gif",
 		htmlRef: "SPL",
 		classArray: ["Anima", "Dark", "Light", "Other"],
-		dropdownDirection: "right"
-	}
+		dropdownDirection: "right",
+	},
 ]

@@ -12,7 +12,7 @@ export const skillAnimSearchByValues = (
 ): void => {
 	connect().then(
 		(db: Db | void) =>
-			new Promise<Array<any>>(resolve => {
+			new Promise<Array<any>>((resolve) => {
 				if (db) {
 					const collection = db.collection(collectionName)
 					collection.find(options).toArray((error, response) => {

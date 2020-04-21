@@ -12,7 +12,7 @@ export const animSearchByValues = (
 ): Promise<Array<any>> =>
 	connect().then(
 		(db: Db | void): Promise<Array<any>> =>
-			new Promise<Array<any>>(resolve => {
+			new Promise<Array<any>>((resolve) => {
 				if (db) {
 					const collection = db.collection(collectionName)
 					collection.find(options).toArray((error, response) => {

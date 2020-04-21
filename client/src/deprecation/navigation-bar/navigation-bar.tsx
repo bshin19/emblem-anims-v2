@@ -14,8 +14,8 @@ const useStyles = makeStyles({
 		justifyContent: "space-evenly",
 		position: "sticky",
 		top: "0",
-		zIndex: 10
-	}
+		zIndex: 10,
+	},
 })
 
 export const NavigationBar = (): ReactElement => {

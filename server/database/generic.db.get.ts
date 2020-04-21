@@ -14,14 +14,14 @@ export const textSearch = (
 ): Promise<Array<any>> =>
 	connect().then(
 		(db: Db | void) =>
-			new Promise<Array<any>>(resolve => {
+			new Promise<Array<any>>((resolve) => {
 				if (db) {
 					const collection = db.collection(collectionName)
 					collection
 						.find({
 							$text: {
-								$search: `${values}`
-							}
+								$search: `${values}`,
+							},
 						})
 						.toArray((error, response) => {
 							assert.equal(error, null)
@@ -49,7 +49,7 @@ export const genericSearchByValues = (
 ): void => {
 	connect().then(
 		(db: Db | void): Promise<Array<any>> =>
-			new Promise<Array<any>>(resolve => {
+			new Promise<Array<any>>((resolve) => {
 				if (db) {
 					const collection = db.collection(collectionName)
 					collection.find(options).toArray((error, response) => {
