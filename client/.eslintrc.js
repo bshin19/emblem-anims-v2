@@ -6,18 +6,46 @@ module.exports = {
 			jsx: true
 		},
 		ecmaVersion: 2018,
-		project: "./tsconfig.json",
+		project: "./client/tsconfig.json",
 		sourceType: "module"
 	},
+	root: true,
 	rules: {
+		"@typescript-eslint/adjacent-overload-signatures": "error",
+		"@typescript-eslint/array-type": [
+			"error",
+			{
+				default: "generic"
+			}
+		],
 		"@typescript-eslint/camelcase": ["error", { properties: "always" }],
 		"@typescript-eslint/class-name-casing": "error",
+		"@typescript-eslint/consistent-type-assertions": [
+			"error",
+			{
+				assertionStyle: "as",
+				objectLiteralTypeAssertions: "allow-as-parameter"
+			}
+		],
 		"@typescript-eslint/explicit-function-return-type": "error",
-		"@typescript-eslint/no-angle-bracket-type-assertion": "error",
+		"@typescript-eslint/member-delimiter-style": [
+			"warn",
+			{
+				multiline: {
+					delimiter: "none",
+					requireLast: false
+				},
+				singleline: {
+					delimiter: "comma",
+					requireLast: false
+				}
+			}
+		],
 		"@typescript-eslint/no-empty-interface": "error",
 		"@typescript-eslint/no-extraneous-class": "error",
 		"@typescript-eslint/no-for-in-array": "error",
 		"@typescript-eslint/no-misused-new": "error",
+		"@typescript-eslint/no-namespace": "error",
 		"@typescript-eslint/no-non-null-assertion": "error",
 		"@typescript-eslint/no-this-alias": "error",
 		"@typescript-eslint/no-unnecessary-type-assertion": "error",
@@ -26,6 +54,8 @@ module.exports = {
 			"error",
 			{ args: "none", ignoreRestSiblings: false, vars: "all" }
 		],
+		"@typescript-eslint/no-useless-constructor": "error",
+		"@typescript-eslint/no-var-requires": 0,
 		"@typescript-eslint/restrict-plus-operands": "error",
 		"@typescript-eslint/type-annotation-spacing": [
 			"error",

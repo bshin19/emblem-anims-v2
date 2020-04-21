@@ -24,22 +24,20 @@ export const About = (): ReactElement => (
 						<Typography variant="body2" component="p">
 							This site provides a method to view and download nearly all
 							animations created for the Fire Emblem GBA games.
-							<List>
-								<ListItem dense>
-									Select animations to view by category.
-								</ListItem>
-								<ListItem dense>
-									Clicking on an image causes it to animate.
-								</ListItem>
-								<ListItem dense>
-									Clicking a weapon icon will swap to that weapon for viewing.
-								</ListItem>
-								<ListItem dense>
-									Clicking an anim name will download the package with all
-									usable animations.
-								</ListItem>
-							</List>
 						</Typography>
+						<List>
+							<ListItem dense>Select animations to view by category.</ListItem>
+							<ListItem dense>
+								Clicking on an image causes it to animate.
+							</ListItem>
+							<ListItem dense>
+								Clicking a weapon icon will swap to that weapon for viewing.
+							</ListItem>
+							<ListItem dense>
+								Clicking an anim name will download the package with all usable
+								animations.
+							</ListItem>
+						</List>
 					</Grid>
 					<Grid item xs={12} sm={6}>
 						<Typography variant="body2" component="p" gutterBottom>
@@ -56,7 +54,7 @@ export const About = (): ReactElement => (
 							</Link>
 							.
 						</Typography>
-						<Typography variant="body2">
+						<Typography variant="body2" component="span">
 							Additional assets can also be found in the repo, such as:
 							<List dense>
 								<ListItem dense>

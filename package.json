@@ -15,6 +15,7 @@
 		"lint": "yarn lint:js",
 		"lint:js": "eslint server/**/*.ts | yarn prettier --check",
 		"prettier": "prettier \"**/*.{json,md,js,ts,tsx,jsx,css}\"",
+		"prettier:fix": "yarn prettier --write",
 		"start": "yarn build && node build/server.js",
 		"start:client": "cd client && yarn start",
 		"start:dev": "concurrently \"yarn start --ignore 'client/*'\" \"yarn start:client\"",
@@ -63,8 +64,13 @@
 		"concurrently": "^5.1.0",
 		"eslint": "^6.8.0",
 		"eslint-config-prettier": "^6.10.0",
+		"eslint-plugin-flowtype": "^4.7.0",
+		"eslint-plugin-import": "^2.20.2",
 		"eslint-plugin-jest": "^23.8.2",
+		"eslint-plugin-jsx-a11y": "^6.2.3",
 		"eslint-plugin-prettier": "^3.1.2",
+		"eslint-plugin-react": "^7.19.0",
+		"eslint-plugin-react-hooks": "^3.0.0",
 		"eslint-plugin-sort-imports-es6-autofix": "^0.5.0",
 		"husky": "^4.2.3",
 		"jest": "24.9.0",
@@ -84,11 +90,7 @@
 		"webpack": "4.41.5"
 	},
 	"lint-staged": {
-		"src/**/*.{js,jsx,ts,tsx,json,css,json,md}": [
-			"prettier --write"
-		],
-		"server/**/*.{js,jsx,ts,tsx}": [
-			"eslint --fix"
-		]
+		"server/**/*.{js,jsx,ts,tsx}": "eslint --fix",
+		"**/*.{json,md,js,ts,tsx,jsx,css}": "prettier --write"
 	}
 }
