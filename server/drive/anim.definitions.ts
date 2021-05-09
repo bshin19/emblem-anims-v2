@@ -139,6 +139,7 @@ export const makeSpellAnim = (
 	}
 
 	if (values && values.length === 4) {
+		school = values[0]
 		element = values[1]
 		name = values[2]
 		credit = formatCredits(values[3])

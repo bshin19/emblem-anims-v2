@@ -11,6 +11,6 @@ const htmlRoute = (req: Request, res: Response): void => {
 	res.sendFile(path.join(__dirname, "../../client/build/index.html"))
 }
 
-router.use("/api", apiRouter)
+router.use("/api/v1", apiRouter)
 
 router.use(htmlRoute)

@@ -22,43 +22,52 @@ const limiter = new Bottleneck({
 const searchWeaponIds = (
 	drive: driveV3.Drive,
 	passedFile: driveV3.Schema$File,
-	weaponName: string
+	weaponName: string,
+	animName?: string
 ): Promise<Weapon> =>
 	new Promise<Weapon>((resolve, reject) => {
 		// const sainAxe = '1uimihp12VkH9YRE1QdEsz_PC0ck-aoTO'
-		limiter
-			.schedule((): any => {
-				drive.files.list(
-					{
-						q: `parents in '${passedFile.id}'`,
-						// supportsAllDrives: true,
-						fields: "files(id, name)",
-						// includeItemsFromAllDrives: true
-					},
-					(err: Error | null, res) => {
-						if (err) reject(err)
+		limiter.schedule((): any => {
+			drive.files.list(
+				{
+					q: `'${passedFile.id}' in parents`,
+					// supportsAllDrives: true,
+					fields: "files(id, name)",
+					pageSize: 1000,
+					// includeItemsFromAllDrives: true
+				},
+				(err: Error | null, res) => {
+					if (err) reject(err)
 
-						const files = res && res.data && res.data.files
+					const files = res && res.data && res.data.files
 
-						if (files && files.length) {
-							const weapon: Partial<Weapon> = { type: weaponName }
+					if (files) {
+						const weapon: Partial<Weapon> = { type: weaponName }
 
-							files.map((file) => {
-								if (file.name === `${weaponName}_000.png`) {
-									weapon.static = file.id || ""
-								} else if (file.name === `${weaponName}.gif`) {
-									weapon.active = file.id || ""
-								}
-							})
-							resolve(weapon as Weapon)
-						} else {
-							console.log(`No files found for: ${passedFile.name}`)
-							reject(`No files found for: ${passedFile.name}`)
-						}
+						files.map((file) => {
+							if (file.name == `${weaponName}_000.png`) {
+								weapon.static = file.id || ""
+							} else if (file.name === `${weaponName}.gif`) {
+								weapon.active = file.id || ""
+							}
+						})
+						if (!weapon.static || !weapon.active)
+							console.log(
+								`bad anim weapon value ${passedFile.name} for ${animName}. static file=${weapon.static}, gif=${weapon.active}`
+							)
+						resolve(weapon as Weapon)
+					} else {
+						reject(
+							`Anim weapon file name formatted improperly or doesn't exist for: ${passedFile.name} for ${animName}`
+						)
 					}
-				)
-			})
-			.catch((error) => console.log(error))
+				}
+			)
+		})
+	}).catch((error) => {
+		console.log(error)
+		const weapon: Partial<Weapon> = { type: weaponName }
+		return weapon as Weapon
 	})
 
 /**
@@ -70,48 +79,57 @@ const searchWeapons = (
 ): Promise<Array<Weapon>> =>
 	new Promise<Array<Weapon>>((resolve, reject) => {
 		// const sain = '1m0JtTpJ-aRUhrlR54l5-pB19yfFmBK-Z'
-		limiter
-			.schedule((): any =>
-				drive.files.list(
-					{
-						q: `mimeType = 'application/vnd.google-apps.folder' and parents in '${passedFile.id}'`,
-						// supportsAllDrives: true,
-						// includeItemsFromAllDrives: true
-					},
-					(err, res) => {
-						if (err) reject(err)
+		limiter.schedule((): any =>
+			drive.files.list(
+				{
+					q: `mimeType = 'application/vnd.google-apps.folder' and '${passedFile.id}' in parents`,
+					// supportsAllDrives: true,
+					// includeItemsFromAllDrives: true
+				},
+				(err, res) => {
+					if (err) reject(err)
 
-						const files = res && res.data && res.data.files
+					const files = res && res.data && res.data.files
 
-						if (files && files.length) {
-							Promise.all(
-								files
-									.filter(
-										(file) =>
-											file && file.name && file.name.match(/[1-9]. (?:.*)/)
+					if (files && files.length) {
+						Promise.all(
+							files
+								.filter(
+									(file) =>
+										file && file.name && file.name.match(/[1-9]. (?:.*)/)
+								)
+								.map((file) => {
+									let weaponName: string | Array<string> | undefined | null =
+										file &&
+										file.name &&
+										file.name.replace(/\d*?\.\s/, "").split(" ")
+									weaponName =
+										weaponName && weaponName[0] && weaponName[0].toString()
+
+									return searchWeaponIds(
+										drive,
+										file,
+										String(weaponName),
+										passedFile.name || ""
 									)
-									.map((file) => {
-										let weaponName: string | Array<string> | undefined | null =
-											file &&
-											file.name &&
-											file.name.replace(/\d*?\.\s/, "").split(" ")
-										weaponName =
-											weaponName && weaponName[0] && weaponName[0].toString()
-
-										return searchWeaponIds(drive, file, String(weaponName))
-									})
-							).then((weapons) => {
+								})
+						)
+							.then((weapons) => {
 								// console.log(weapons)
 								resolve(weapons)
 							})
-						} else {
-							console.log(`No files found for: ${passedFile.name}`)
-							reject(`No files found for: ${passedFile.name}`)
-						}
+							.catch((error) => {
+								console.log(error)
+							})
+					} else {
+						reject(`No weapon files found for: ${passedFile.name}`)
 					}
-				)
+				}
 			)
-			.catch((error) => console.log(error))
+		)
+	}).catch((error) => {
+		console.log(error)
+		return [] as Array<Weapon>
 	})
 
 /**
@@ -122,41 +140,45 @@ const searchSkills = (
 	passedFile: driveV3.Schema$File
 ): Promise<Array<Weapon>> =>
 	new Promise<Array<Weapon>>((resolve, reject) => {
-		limiter
-			.schedule((): any =>
-				// const sain = '1m0JtTpJ-aRUhrlR54l5-pB19yfFmBK-Z'
-				drive.files.list(
-					{
-						q: `parents in '${passedFile.id}'`,
-						fields: "files(id, name)",
-						// supportsAllDrives: true,
-						// includeItemsFromAllDrives: true
-					},
-					(err, res) => {
-						if (err) reject(err)
+		limiter.schedule((): any =>
+			// const sain = '1m0JtTpJ-aRUhrlR54l5-pB19yfFmBK-Z'
+			drive.files.list(
+				{
+					q: `'${passedFile.id}' in parents`,
+					fields: "files(id, name)",
+					// supportsAllDrives: true,
+					// includeItemsFromAllDrives: true
+				},
+				(err, res) => {
+					if (err) reject(err)
 
-						const files = res && res.data && res.data.files
+					const files = res && res.data && res.data.files
 
-						const weaponName = "Skill"
+					const weaponName = "Skill"
 
-						if (files && files.length) {
-							const weapon: Partial<Weapon> = { type: weaponName }
-							files.map((file) => {
-								if (file.name === `${weaponName}_g000.png`) {
-									weapon.static = file.id || ""
-								} else if (file.name === `${weaponName}.gif`) {
-									weapon.active = file.id || ""
-								}
-							})
-							resolve([weapon as Weapon])
-						} else {
-							console.log(`No files found for: ${passedFile.name}`)
-							reject(`No files found for: ${passedFile.name}`)
-						}
+					if (files && files.length) {
+						const weapon: Partial<Weapon> = { type: weaponName }
+						files.map((file) => {
+							if (file.name === `${weaponName}_g000.png`) {
+								weapon.static = file.id || ""
+							} else if (file.name === `${weaponName}.gif`) {
+								weapon.active = file.id || ""
+							}
+						})
+						if (!weapon.static && !weapon.active)
+							console.log(
+								`bad anim weapon value ${weapon.type} for ${passedFile.name}`
+							)
+						resolve([weapon as Weapon])
+					} else {
+						reject(`No files found for: ${passedFile.name}`)
 					}
-				)
+				}
 			)
-			.catch((error) => console.log(error))
+		)
+	}).catch((error) => {
+		console.log(error)
+		return [] as Array<Weapon>
 	})
 
 /**
@@ -168,40 +190,44 @@ const searchSpells = (
 ): Promise<Array<Weapon>> =>
 	new Promise<Array<Weapon>>((resolve, reject) => {
 		// const sain = '1m0JtTpJ-aRUhrlR54l5-pB19yfFmBK-Z'
-		limiter
-			.schedule((): any =>
-				drive.files.list(
-					{
-						q: `parents in '${passedFile.id}'`,
-						fields: "files(id, name)",
-						// supportsAllDrives: true,
-						// includeItemsFromAllDrives: true
-					},
-					(err, res) => {
-						if (err) reject(err)
+		limiter.schedule((): any =>
+			drive.files.list(
+				{
+					q: `'${passedFile.id}' in parents`,
+					fields: "files(id, name)",
+					pageSize: 500,
+					// supportsAllDrives: true,
+					// includeItemsFromAllDrives: true
+				},
+				(err, res) => {
+					if (err) reject(`${err} in ${passedFile.name}`)
 
-						const files = res && res.data && res.data.files
+					const files = res && res.data && res.data.files
 
-						const weaponName = "Spell"
+					const weaponName = "Spell"
 
-						if (files && files.length) {
-							const weapon: Partial<Weapon> = { type: weaponName }
-							files.map((file) => {
-								if (file.name === `${weaponName}_b_001.png`) {
-									weapon.static = file.id || ""
-								} else if (file.name === `${weaponName}.gif`) {
-									weapon.active = file.id || ""
-								}
-							})
-							resolve([weapon as Weapon])
-						} else {
-							console.log(`No files found for: ${passedFile.name}`)
-							reject(`No files found for: ${passedFile.name}`)
-						}
+					if (files && files.length) {
+						const weapon: Partial<Weapon> = { type: weaponName }
+						files.map((file) => {
+							if (file.name === `${weaponName}_b_001.png`) {
+								weapon.static = file.id || ""
+							} else if (file.name === `${weaponName}.gif`) {
+								weapon.active = file.id || ""
+							}
+						})
+						if (!weapon.static && !weapon.active)
+							console.log(`bad formatted weapon data for ${passedFile.name}`)
+						resolve([weapon as Weapon])
+					} else {
+						console.log(`No files found for: ${passedFile.name}`)
+						reject(`No files found for: ${passedFile.name}`)
 					}
-				)
+				}
 			)
-			.catch((error) => console.log(error))
+		)
+	}).catch((error) => {
+		console.log(error)
+		return [] as Array<Weapon>
 	})
 
 /**
@@ -223,14 +249,15 @@ const searchAnims = (
 		limiter.schedule((): any =>
 			drive.files.list(
 				{
-					// q: `mimeType = 'application/vnd.google-apps.folder' and name = '[T3][CAV][Master Knight][F]{St jack}' and parents in '1JSmqv89W0tvlRUHNaaqJep3GZm1oxj9q'`,
-					q: `mimeType = 'application/vnd.google-apps.folder' and parents in '${passedFile.id}'`,
+					// q: `mimeType = 'application/vnd.google-apps.folder' and name = '[T3][CAV][Master Knight][F]{St jack}' and '1JSmqv89W0tvlRUHNaaqJep3GZm1oxj9q' in parents`,
+					q: `mimeType = 'application/vnd.google-apps.folder' and '${passedFile.id}' in parents`,
 					fields: "files(id, name, webViewLink)",
+					pageSize: 1000,
 					// supportsAllDrives: true,
 					// includeItemsFromAllDrives: true
 				},
 				(err, res) => {
-					if (err) reject(err)
+					if (err) reject(`${err} in ${passedFile.name}`)
 
 					const files = res && res.data && res.data.files
 
@@ -285,24 +312,26 @@ const searchBattleAnimations = (drive: driveV3.Drive): void => {
 	// const battleAnimation = '1UOuAig00S1s280J6A8bkVDIFX8RIcIWx'
 	drive.files.list(
 		{
-			q:
-				"mimeType = 'application/vnd.google-apps.folder' and parents in '1UOuAig00S1s280J6A8bkVDIFX8RIcIWx'",
-			// supportsAllDrives: true,
-			// includeItemsFromAllDrives: true
+			q: "'1UOuAig00S1s280J6A8bkVDIFX8RIcIWx' in parents",
+			supportsAllDrives: true,
+			includeItemsFromAllDrives: true,
 		},
 		(err, res) => {
 			if (err) throw err
 			const files = res && res.data && res.data.files
+			// toggle to verify that all folders are getting brought in correctly
+			// console.log(files)
 			if (files && files.length) {
-				Promise.all(files.map((file) => searchAnims(drive, file))).then(
-					(animsArrays: Array<Anims> | any): void | PromiseLike<void> => {
+				Promise.all(files.map((file) => searchAnims(drive, file)))
+					.then((animsArrays: Array<Anims> | any): void | PromiseLike<void> => {
 						const animations = [].concat(...animsArrays)
+						console.log("Drive data all collected")
+						// console.log(animations)
 						assetsToDB(animations, "animations")
-					}
-				)
+					})
+					.catch(() => console.log("searchBattleAnimations failed"))
 				// assetsToDB({files})
 				// Preserved for testing individual methods
-				// searchAnims(drive)
 				// searchWeapons(drive)
 				// searchWeaponIds(drive, '', 'Axe')
 			} else {
@@ -322,6 +351,7 @@ export const driveSearchAnims = async (): Promise<void> => {
 			version: "v3",
 			auth,
 		})
+		console.log("Searching Google Drive...")
 		searchBattleAnimations(drive)
 	}
 }

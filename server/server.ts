@@ -24,7 +24,7 @@ app.use(bodyParser.json())
 app.use(express.static("client/public"))
 app.use(router)
 
-const LOCAL_TEST = false
+const LOCAL_TEST = true
 const SKIP_GOOGLE_DRIVE = false
 
 if (LOCAL_TEST) {

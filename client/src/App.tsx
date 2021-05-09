@@ -4,15 +4,13 @@ import { CssBaseline } from "@material-ui/core"
 import { makeStyles, Theme, createStyles } from "@material-ui/core/styles"
 import { Navigation } from "./component/navigation"
 import clsx from "clsx"
-import { BrowserRouter as Router, Route } from "react-router-dom"
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom"
+import { ClassesPage } from "./component/page/classes-page"
 
 const drawerWidth = 240
 
 const useStyles = makeStyles((theme: Theme) =>
 	createStyles({
-		root: {
-			display: "flex",
-		},
 		content: {
 			flexGrow: 1,
 			padding: theme.spacing(3),
@@ -20,20 +18,15 @@ const useStyles = makeStyles((theme: Theme) =>
 				easing: theme.transitions.easing.sharp,
 				duration: theme.transitions.duration.leavingScreen,
 			}),
-			marginLeft: -drawerWidth,
+			marginLeft: 0,
+			marginTop: "70px",
 		},
 		contentShift: {
 			transition: theme.transitions.create("margin", {
 				easing: theme.transitions.easing.easeOut,
 				duration: theme.transitions.duration.enteringScreen,
 			}),
-			marginLeft: 0,
-		},
-		drawerHeader: {
-			display: "flex",
-			alignItems: "center",
-			minHeight: "72px",
-			justifyContent: "flex-end",
+			marginLeft: drawerWidth,
 		},
 	})
 )
@@ -44,18 +37,24 @@ const App = (): ReactElement => {
 
 	return (
 		<Router>
+			{/* Only need additional routes at this level if there needs to be more base pages in the future */}
 			<Route path="/">
 				<CssBaseline />
-				<div className={classes.root}>
-					<Navigation isOpen={isOpen} setIsOpen={setIsOpen} />
-					<Sidebar isOpen={isOpen} />
-					<main
-						className={clsx(classes.content, {
-							[classes.contentShift]: isOpen,
-						})}>
-						<div className={classes.drawerHeader} />
-					</main>
-				</div>
+				<Navigation isOpen={isOpen} setIsOpen={setIsOpen} />
+				<Sidebar isOpen={isOpen} />
+				<main
+					className={clsx(classes.content, {
+						[classes.contentShift]: isOpen,
+					})}>
+					<Switch>
+						<Route path="/class/:feClass">
+							<ClassesPage />
+						</Route>
+						<Route path="/">
+							<ClassesPage />
+						</Route>
+					</Switch>
+				</main>
 			</Route>
 		</Router>
 	)

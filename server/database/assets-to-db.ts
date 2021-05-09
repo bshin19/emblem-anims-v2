@@ -1,7 +1,7 @@
-import assert from "assert"
-// import fs from "fs"
 import { Anims } from "../drive/anim.definitions"
 import { connect } from "./db"
+import assert from "assert"
+// import fs from "fs"
 
 /**
  * Populates a database collection with a formatted json

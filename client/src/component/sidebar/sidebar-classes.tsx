@@ -184,6 +184,9 @@ export const SidebarClasses: FC<SidebarClassesProps> = ({
 												(animGrouping) =>
 													animGrouping.category === category && (
 														<StyledTreeItem
+															onClick={(): void =>
+																handleClassClick(animGrouping.feClass)
+															}
 															labelIcon={
 																<div className={classes.classIconWrapper}>
 																	<img
@@ -209,6 +212,7 @@ export const SidebarClasses: FC<SidebarClassesProps> = ({
 						.map(({ feClass }) => (
 							<StyledTreeItem
 								key={feClass}
+								onClick={(): void => handleClassClick(feClass)}
 								labelIcon={
 									<div className={classes.classIconWrapper}>
 										<img
